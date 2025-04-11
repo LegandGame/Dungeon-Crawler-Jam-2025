@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://sdyq6qh25kh"]
+
+[ext_resource type="Script" uid="uid://dgwt86b6f81mk" path="res://Entites/player/player.gd" id="1_ra8ty"]
+[ext_resource type="PackedScene" uid="uid://b5wahvoh0rl72" path="res://Common/Hurtbox Component/hurtbox_component.tscn" id="2_cpdef"]
+[ext_resource type="PackedScene" uid="uid://su02eij6xck2" path="res://Common/Health Component/health_component.tscn" id="3_37ufg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_37ufg"]
+
+[node name="player" type="Node3D"]
+script = ExtResource("1_ra8ty")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+current = true
+fov = 95.0
+
+[node name="RayCastFront" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, -2)
+debug_shape_custom_color = Color(1, 0, 0, 1)
+
+[node name="RayCastRight" type="RayCast3D" parent="."]
+target_position = Vector3(2, 0, 0)
+debug_shape_custom_color = Color(0, 1, 0, 1)
+
+[node name="RayCastLeft" type="RayCast3D" parent="."]
+target_position = Vector3(-2, 0, 0)
+debug_shape_custom_color = Color(1, 1, 0, 1)
+
+[node name="RayCastBack" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, 2)
+debug_shape_custom_color = Color(0, 0, 1, 1)
+
+[node name="HurtboxComponent" parent="." instance=ExtResource("2_cpdef")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HurtboxComponent"]
+shape = SubResource("BoxShape3D_37ufg")
+
+[node name="HealthComponent" parent="." instance=ExtResource("3_37ufg")]
