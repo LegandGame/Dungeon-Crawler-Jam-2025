@@ -4,6 +4,8 @@
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_73bmt")
+walk_speed = 0.3
+sprint_speed = 0.01
 
 [node name="Camera3D" type="Camera3D" parent="."]
 fov = 95.0
