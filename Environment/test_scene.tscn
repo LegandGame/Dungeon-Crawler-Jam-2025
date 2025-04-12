@@ -45,3 +45,68 @@ shape = SubResource("BoxShape3D_gbjsn")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Test Hitbox"]
 mesh = SubResource("SphereMesh_de3vn")
 skeleton = NodePath("")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Movement UI" type="GridContainer" parent="HUD"]
+anchors_preset = -1
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_bottom = -20.0
+grow_vertical = 0
+columns = 3
+
+[node name="Turn L" type="Button" parent="HUD/Movement UI"]
+layout_mode = 2
+action_mode = 0
+text = "Turn Left"
+icon_alignment = 1
+
+[node name="Up" type="Button" parent="HUD/Movement UI"]
+layout_mode = 2
+action_mode = 0
+text = "  Up  "
+
+[node name="Turn R" type="Button" parent="HUD/Movement UI"]
+layout_mode = 2
+action_mode = 0
+text = "Turn Right"
+
+[node name="Left" type="Button" parent="HUD/Movement UI"]
+layout_mode = 2
+action_mode = 0
+text = "Left"
+
+[node name="Down" type="Button" parent="HUD/Movement UI"]
+layout_mode = 2
+action_mode = 0
+text = "  Down  "
+
+[node name="Right" type="Button" parent="HUD/Movement UI"]
+layout_mode = 2
+action_mode = 0
+text = "Right"
+
+[node name="HP UI" type="HSplitContainer" parent="HUD"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -331.0
+offset_top = 20.0
+offset_right = -30.0
+offset_bottom = 60.0
+grow_horizontal = 0
+split_offset = 30
+
+[node name="HP Label" type="RichTextLabel" parent="HUD/HP UI"]
+layout_mode = 2
+text = "HP:"
+scroll_active = false
+tab_size = 6
+
+[node name="HP Bar" type="ProgressBar" parent="HUD/HP UI"]
+layout_mode = 2
+tooltip_text = "Hp:"
+step = 2.0
+value = 100.0
