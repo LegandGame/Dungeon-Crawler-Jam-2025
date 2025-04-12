@@ -10,9 +10,9 @@ func _ready() -> void:
 	curHealth = maxHealth
 
 func damage(attack : int) -> void:
-	print("DEBUG: health changed")
 	curHealth -= attack
-	clamp(curHealth, 0, maxHealth)
+	print("DEBUG: ", self, " health changed by ", attack, ", now at ", curHealth)
+	curHealth = clamp(curHealth, 0, maxHealth)
 	health_changed.emit(curHealth)
 	if curHealth <= 0:
 		health_empty.emit()

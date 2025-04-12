@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://lfwam0gb06br"]
+[gd_scene load_steps=8 format=3 uid="uid://lfwam0gb06br"]
 
 [ext_resource type="PackedScene" uid="uid://sdyq6qh25kh" path="res://Entites/player/player.tscn" id="1_c06ff"]
-[ext_resource type="PackedScene" uid="uid://cokraq6bwp8g5" path="res://Common/Hitbox Component/hitbox_component.tscn" id="2_de3vn"]
+[ext_resource type="Script" uid="uid://b5u1gexby67pj" path="res://Common/Hitbox Component/hitbox_component.gd" id="3_1ctfe"]
+[ext_resource type="PackedScene" uid="uid://c1r5j1f33knm" path="res://Entites/Hostage/hostage.tscn" id="3_gbjsn"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_p6cpw"]
 size = Vector3(10, 0.1, 10)
@@ -30,11 +31,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.51503, 0)
 omni_range = 6.31247
 
-[node name="HitboxComponent" parent="." instance=ExtResource("2_de3vn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -4)
+[node name="Hostage" parent="." instance=ExtResource("3_gbjsn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 4)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="HitboxComponent"]
+[node name="Test Hitbox" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -4)
+script = ExtResource("3_1ctfe")
+metadata/_custom_type_script = "uid://b5u1gexby67pj"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Test Hitbox"]
 shape = SubResource("BoxShape3D_gbjsn")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="HitboxComponent"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Test Hitbox"]
 mesh = SubResource("SphereMesh_de3vn")
+skeleton = NodePath("")

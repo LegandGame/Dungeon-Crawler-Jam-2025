@@ -6,8 +6,8 @@ const TRAVEL_TIME := 0.3
 @onready var rayBack : RayCast3D = $RayCastBack
 @onready var rayRight : RayCast3D = $RayCastRight
 @onready var rayLeft : RayCast3D = $RayCastLeft
-@onready var hurtBox : Hurtbox = $HurtboxComponent
-@onready var health : Health = $HealthComponent
+@onready var hurtBox : Hurtbox = $Hurtbox
+@onready var health : Health = $Health
 
 var tween
 signal player_step

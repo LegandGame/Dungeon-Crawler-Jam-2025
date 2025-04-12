@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://ccnvmwxx1fwl1"]
+
+[ext_resource type="Script" uid="uid://b5u1gexby67pj" path="res://Common/Hitbox Component/hitbox_component.gd" id="1_ba46g"]
+[ext_resource type="Script" uid="uid://nfp4jje2jjbn" path="res://Entites/Enemy/enemy.gd" id="1_cwpil"]
+[ext_resource type="Script" uid="uid://dnf2o5uulaeks" path="res://Common/Hurtbox Component/hurtbox_component.gd" id="2_cwpil"]
+[ext_resource type="Script" uid="uid://c5snw17oe722c" path="res://Common/Health Component/health_component.gd" id="4_cfso3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cwpil"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_ylgmt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ylgmt"]
+
+[node name="Enemy" type="Node3D"]
+script = ExtResource("1_cwpil")
+
+[node name="Hurtbox" type="Area3D" parent="."]
+script = ExtResource("2_cwpil")
+metadata/_custom_type_script = "uid://dnf2o5uulaeks"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox"]
+shape = SubResource("BoxShape3D_cwpil")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_ylgmt")
+
+[node name="VisionRaycasts" type="Node3D" parent="."]
+
+[node name="RayCastFront" type="RayCast3D" parent="VisionRaycasts"]
+target_position = Vector3(0, 0, -20)
+debug_shape_custom_color = Color(1, 0, 0, 1)
+
+[node name="RayCastRight" type="RayCast3D" parent="VisionRaycasts"]
+target_position = Vector3(6, 0, 0)
+debug_shape_custom_color = Color(0, 1, 0, 1)
+
+[node name="RayCastLeft" type="RayCast3D" parent="VisionRaycasts"]
+target_position = Vector3(-6, 0, 0)
+debug_shape_custom_color = Color(1, 1, 0, 1)
+
+[node name="RayCastBack" type="RayCast3D" parent="VisionRaycasts"]
+target_position = Vector3(0, 0, 2)
+debug_shape_custom_color = Color(0, 0, 1, 1)
+
+[node name="Hitbox" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+script = ExtResource("1_ba46g")
+metadata/_custom_type_script = "uid://b5u1gexby67pj"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
+shape = SubResource("BoxShape3D_ylgmt")
+
+[node name="MovementRaycast" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, -2)
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("4_cfso3")
+metadata/_custom_type_script = "uid://c5snw17oe722c"
