@@ -1,18 +1,17 @@
 class_name Health extends Node
-
-@export var maxHealth : int = 10
-var curHealth : int
+		
+var health : int :
+	set(value):
+		health = value
 
 signal health_changed(new_health)
 signal health_empty
-
-func _ready() -> void:
-	curHealth = maxHealth
-
+	
+func setHealth(newHealth) -> void:
+	health = newHealth
+	
 func damage(attack : int) -> void:
-	curHealth -= attack
-	print("DEBUG: ", self, " health changed by ", attack, ", now at ", curHealth)
-	curHealth = clamp(curHealth, 0, maxHealth)
-	health_changed.emit(curHealth)
-	if curHealth <= 0:
+	health -= attack
+	health_changed.emit(health)
+	if health <= 0:
 		health_empty.emit()
