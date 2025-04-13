@@ -34,18 +34,6 @@ shape = SubResource("BoxShape3D_c06ff")
 [node name="player" parent="." instance=ExtResource("1_c06ff")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.51503, 0)
-omni_range = 6.31247
-
-[node name="OmniLight3D2" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.51503, 8)
-omni_range = 6.31247
-
-[node name="OmniLight3D3" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1.51503, 2)
-omni_range = 6.31247
-
 [node name="Hostage" parent="." instance=ExtResource("3_gbjsn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 4)
 
@@ -136,3 +124,20 @@ data = {
 "cells": PackedInt32Array(65531, 65534, 3, 65531, 65535, 3, 65531, 0, 3, 65530, 0, 3, 65530, 65535, 3, 65530, 65534, 3, 65532, 65534, 3, 65532, 65535, 3, 65532, 0, 3, 65529, 65535, 655360, 65529, 65534, 655360, 65529, 65533, 655361, 65530, 65533, 1048576, 65531, 65533, 1048576, 65532, 65533, 1048576, 65531, 1, 1441797, 65533, 65533, 1048577, 65533, 1, 1, 65533, 65534, 0, 65533, 65535, 0, 65533, 0, 0, 65529, 0, 1441796, 65530, 1, 1441792, 65529, 1, 1441793, 65528, 0, 1441794, 65527, 0, 1441794, 65532, 1, 1441792, 65531, 2, 6, 65531, 3, 2, 65531, 4, 2)
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="Lights" type="Node3D" parent="."]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.51503, 0)
+omni_range = 6.31247
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.51503, 8)
+omni_range = 6.31247
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1.51503, 2)
+omni_range = 6.31247
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lights"]
+light_color = Color(1, 0.9025, 0.87, 1)
