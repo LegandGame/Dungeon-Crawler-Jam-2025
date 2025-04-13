@@ -15,6 +15,10 @@ run/main_scene="uid://lfwam0gb06br"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Globs="*res://Common/Globs.gd"
+
 [input]
 
 move_forward={

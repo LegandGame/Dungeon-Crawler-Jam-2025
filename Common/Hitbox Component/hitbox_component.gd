@@ -7,5 +7,4 @@ func _ready() -> void:
 
 func _on_area_entered(area: Area3D) -> void:
 	if area is Hurtbox:
-		print("DEBUG: hitbox has hit")
 		area.on_hurt(value)

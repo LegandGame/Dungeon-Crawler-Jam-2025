@@ -1,14 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://sdyq6qh25kh"]
 
+[ext_resource type="Script" uid="uid://dgwt86b6f81mk" path="res://Entites/player/player.gd" id="1_37ufg"]
 [ext_resource type="Script" uid="uid://c5snw17oe722c" path="res://Common/Health Component/health_component.gd" id="3_37ufg"]
 [ext_resource type="Script" uid="uid://dnf2o5uulaeks" path="res://Common/Hurtbox Component/hurtbox_component.gd" id="3_ty0ra"]
-
-[sub_resource type="GDScript" id="GDScript_jjud8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_37ufg"]
 
 [node name="player" type="Node3D" groups=["player"]]
-script = SubResource("GDScript_jjud8")
+script = ExtResource("1_37ufg")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 current = true

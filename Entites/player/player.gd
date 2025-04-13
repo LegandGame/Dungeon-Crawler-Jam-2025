@@ -2,7 +2,6 @@ class_name Player extends Node3D
 
 const TRAVEL_TIME := 0.3
 const MAX_HP = 40
-const TILEWIDTH = 2
 
 @onready var rayFront : RayCast3D = $RayCastFront
 @onready var rayBack : RayCast3D = $RayCastBack
@@ -12,7 +11,7 @@ const TILEWIDTH = 2
 @onready var health : Health = $Health
 
 var tween
-var speed:int = 1
+var speed : int = 1
 signal player_step
 signal player_HealthChange
 
@@ -53,31 +52,31 @@ func takeDamage(damage :int) -> void:
 func moveForward() -> void:
 	if not rayFront.is_colliding():
 		tween = create_tween()
-		tween.tween_property(self, "transform", transform.translated_local(Vector3.FORWARD * speed * TILEWIDTH), TRAVEL_TIME)
+		tween.tween_property(self, "transform", transform.translated_local(Vector3.FORWARD * speed * Globs.TILEWIDTH), TRAVEL_TIME)
 		player_step.emit()
-		
+
 func moveBack() -> void:
 	if not rayBack.is_colliding():
 		tween = create_tween()
-		tween.tween_property(self, "transform", transform.translated_local(Vector3.BACK * speed * TILEWIDTH), TRAVEL_TIME)
+		tween.tween_property(self, "transform", transform.translated_local(Vector3.BACK * speed * Globs.TILEWIDTH), TRAVEL_TIME)
 		player_step.emit()
-		
+
 func moveLeft() -> void:
 	if not rayLeft.is_colliding():
 		tween = create_tween()
-		tween.tween_property(self, "transform", transform.translated_local(Vector3.LEFT * speed * TILEWIDTH), TRAVEL_TIME)
+		tween.tween_property(self, "transform", transform.translated_local(Vector3.LEFT * speed * Globs.TILEWIDTH), TRAVEL_TIME)
 		player_step.emit()
-		
+
 func moveRight() -> void:
 	if not rayRight.is_colliding():
 		tween = create_tween()
-		tween.tween_property(self, "transform", transform.translated_local(Vector3.RIGHT * speed * TILEWIDTH), TRAVEL_TIME)
+		tween.tween_property(self, "transform", transform.translated_local(Vector3.RIGHT * speed * Globs.TILEWIDTH), TRAVEL_TIME)
 		player_step.emit()
-		
+
 func rotateLeft() -> void:
 	tween = create_tween()
 	tween.tween_property(self, "transform", transform.rotated_local(Vector3.UP, PI/2), TRAVEL_TIME)
-	
+
 func rotateRight() -> void:
 	tween = create_tween()
 	tween.tween_property(self, "transform", transform.rotated_local(Vector3.UP, -PI/2), TRAVEL_TIME)
