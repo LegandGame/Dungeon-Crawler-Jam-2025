@@ -3,10 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://sdyq6qh25kh" path="res://Entites/player/player.tscn" id="1_c06ff"]
 [ext_resource type="Script" uid="uid://c31kh8h8m8ftc" path="res://Environment/test_scene.gd" id="1_v1n0n"]
 [ext_resource type="Script" uid="uid://b5u1gexby67pj" path="res://Common/Hitbox Component/hitbox_component.gd" id="3_1ctfe"]
-[ext_resource type="Script" uid="uid://dgwt86b6f81mk" path="res://Entites/player/player.gd" id="3_gbb08"]
 [ext_resource type="PackedScene" uid="uid://c1r5j1f33knm" path="res://Entites/Hostage/hostage.tscn" id="3_gbjsn"]
 [ext_resource type="Script" uid="uid://brwgb3jucspw5" path="res://Environment/hp_bar.gd" id="4_1ctfe"]
 [ext_resource type="Script" uid="uid://thhhk4qd7l8b" path="res://Environment/movement_ui.gd" id="5_gqipa"]
+[ext_resource type="MeshLibrary" uid="uid://brxlkwk3b3gar" path="res://Assets/Models/dungeon_tiles.tres" id="7_gbb08"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_p6cpw"]
 size = Vector3(10, 0.1, 10)
@@ -24,17 +24,26 @@ script = ExtResource("1_v1n0n")
 [node name="Floor" type="StaticBody3D" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+visible = false
 mesh = SubResource("BoxMesh_p6cpw")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+visible = false
 shape = SubResource("BoxShape3D_c06ff")
 
 [node name="player" parent="." instance=ExtResource("1_c06ff")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-script = ExtResource("3_gbb08")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.51503, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.51503, 0)
+omni_range = 6.31247
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.51503, 8)
+omni_range = 6.31247
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1.51503, 2)
 omni_range = 6.31247
 
 [node name="Hostage" parent="." instance=ExtResource("3_gbjsn")]
@@ -118,3 +127,12 @@ tooltip_text = "Hp:"
 step = 1.0
 value = 100.0
 script = ExtResource("4_1ctfe")
+
+[node name="GridMap" type="GridMap" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 1)
+mesh_library = ExtResource("7_gbb08")
+cell_center_y = false
+data = {
+"cells": PackedInt32Array(65531, 65534, 3, 65531, 65535, 3, 65531, 0, 3, 65530, 0, 3, 65530, 65535, 3, 65530, 65534, 3, 65532, 65534, 3, 65532, 65535, 3, 65532, 0, 3, 65529, 65535, 655360, 65529, 65534, 655360, 65529, 65533, 655361, 65530, 65533, 1048576, 65531, 65533, 1048576, 65532, 65533, 1048576, 65531, 1, 1441797, 65533, 65533, 1048577, 65533, 1, 1, 65533, 65534, 0, 65533, 65535, 0, 65533, 0, 0, 65529, 0, 1441796, 65530, 1, 1441792, 65529, 1, 1441793, 65528, 0, 1441794, 65527, 0, 1441794, 65532, 1, 1441792, 65531, 2, 6, 65531, 3, 2, 65531, 4, 2)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
