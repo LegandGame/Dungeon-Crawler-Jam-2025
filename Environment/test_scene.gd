@@ -1,5 +1,8 @@
 extends Node3D
 
+var mouse = Vector2()
+const DIST = 3
+
 func _ready():
 	$player.player_HealthChange.connect($"HUD/HP UI/HP Bar".update_with_tween)
 	$"HUD/Movement UI".movement_UI_Pressed_D.connect($player.moveBack)
@@ -8,3 +11,24 @@ func _ready():
 	$"HUD/Movement UI".movement_UI_Pressed_R.connect($player.moveRight)
 	$"HUD/Movement UI".movement_UI_Pressed_rL.connect($player.rotateLeft)
 	$"HUD/Movement UI".movement_UI_Pressed_rR.connect($player.rotateRight)
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseMotion:
+		mouse = event.position
+	if event is InputEventMouseButton:
+		if event.pressed == false and event.button_index == MOUSE_BUTTON_LEFT:
+			get_mouse_position(mouse)
+
+#Mouse interaction by creating a ray when mouse is clicked and checking if it intersects with anything	
+func get_mouse_position(mouse:Vector2):
+	var space = get_world_3d().direct_space_state
+	var start = get_viewport().get_camera_3d().project_ray_origin(mouse)
+	var end = get_viewport().get_camera_3d().project_position(mouse,DIST)
+	
+	#create ray using start and end
+	var params = PhysicsRayQueryParameters3D.create(start,end)
+	
+	#cast the ray using the space and return the results as a Dictionary
+	var result = space.intersect_ray(params)
+	if result.is_empty() == false:
+		print(result)
