@@ -47,7 +47,7 @@ func takeDamage(damage :int) -> void:
 	health.damage(damage)
 	player_HealthChange.emit(MAX_HP,health.health)
 	if health.health <= 0:
-		get_tree().reload_current_scene()
+		get_tree().call_deferred("reload_current_scene")
 
 func moveForward() -> void:
 	if not rayFront.is_colliding():
