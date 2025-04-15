@@ -1,25 +1,21 @@
-[gd_scene load_steps=15 format=3 uid="uid://lfwam0gb06br"]
+[gd_scene load_steps=13 format=3 uid="uid://lfwam0gb06br"]
 
-[ext_resource type="PackedScene" uid="uid://sdyq6qh25kh" path="res://Entites/player/player.tscn" id="1_c06ff"]
+[ext_resource type="PackedScene" uid="uid://sdyq6qh25kh" path="res://Entites/Player/player.tscn" id="1_c06ff"]
 [ext_resource type="Script" uid="uid://c31kh8h8m8ftc" path="res://Environment/test_scene.gd" id="1_v1n0n"]
-[ext_resource type="Script" uid="uid://b5u1gexby67pj" path="res://Common/Hitbox Component/hitbox_component.gd" id="3_1ctfe"]
 [ext_resource type="PackedScene" uid="uid://c1r5j1f33knm" path="res://Entites/Hostage/hostage.tscn" id="3_gbjsn"]
-[ext_resource type="Script" uid="uid://brwgb3jucspw5" path="res://Environment/hp_bar.gd" id="4_1ctfe"]
-[ext_resource type="Script" uid="uid://dw4htn6xntn3t" path="res://Environment/hud.gd" id="5_fvnsb"]
-[ext_resource type="Script" uid="uid://thhhk4qd7l8b" path="res://Environment/movement_ui.gd" id="5_gqipa"]
+[ext_resource type="Script" uid="uid://brwgb3jucspw5" path="res://UI/HUD/hp_bar.gd" id="4_1ctfe"]
+[ext_resource type="PackedScene" uid="uid://ccnvmwxx1fwl1" path="res://Entites/Enemy/enemy.tscn" id="4_5b75d"]
+[ext_resource type="Script" uid="uid://dw4htn6xntn3t" path="res://UI/HUD/hud.gd" id="5_fvnsb"]
+[ext_resource type="Script" uid="uid://thhhk4qd7l8b" path="res://UI/HUD/movement_ui.gd" id="5_gqipa"]
 [ext_resource type="MeshLibrary" uid="uid://brxlkwk3b3gar" path="res://Assets/Models/dungeon_tiles.tres" id="7_gbb08"]
-[ext_resource type="PackedScene" uid="uid://ddgeybu0nfdaa" path="res://UI/gameover_menu.tscn" id="9_5b75d"]
-[ext_resource type="PackedScene" uid="uid://co2j7rusbpalw" path="res://UI/pause_menu.tscn" id="9_pma81"]
+[ext_resource type="PackedScene" uid="uid://ddgeybu0nfdaa" path="res://UI/Game Over Menu/gameover_menu.tscn" id="9_5b75d"]
+[ext_resource type="PackedScene" uid="uid://co2j7rusbpalw" path="res://UI/Pause Menu/pause_menu.tscn" id="9_pma81"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_p6cpw"]
 size = Vector3(10, 0.1, 10)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_c06ff"]
 size = Vector3(10, 0.1, 10)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_gbjsn"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_de3vn"]
 
 [node name="Test Scene" type="Node3D"]
 script = ExtResource("1_v1n0n")
@@ -40,18 +36,36 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 [node name="Hostage" parent="." instance=ExtResource("3_gbjsn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 4)
 
-[node name="Test Hitbox" type="Area3D" parent="."]
+[node name="Enemy" parent="." instance=ExtResource("4_5b75d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -4)
-script = ExtResource("3_1ctfe")
-value = 10
-metadata/_custom_type_script = "uid://b5u1gexby67pj"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Test Hitbox"]
-shape = SubResource("BoxShape3D_gbjsn")
+[node name="GridMap" type="GridMap" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 1)
+mesh_library = ExtResource("7_gbb08")
+cell_center_y = false
+collision_layer = 2
+collision_mask = 5
+data = {
+"cells": PackedInt32Array(65531, 65534, 3, 65531, 65535, 3, 65531, 0, 3, 65530, 0, 3, 65530, 65534, 3, 65532, 65534, 3, 65532, 65535, 3, 65532, 0, 3, 65529, 65535, 655360, 65530, 65533, 1048576, 65531, 65533, 1048576, 65532, 65533, 1048576, 65531, 1, 1441797, 65533, 65533, 1048577, 65533, 1, 1, 65533, 65534, 0, 65533, 65535, 0, 65533, 0, 0, 65529, 0, 1441796, 65530, 1, 1441792, 65529, 1, 1441793, 65528, 0, 1441794, 65527, 0, 1441794, 65532, 1, 1441792, 65531, 2, 6, 65531, 3, 2, 65531, 4, 2)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Test Hitbox"]
-mesh = SubResource("SphereMesh_de3vn")
-skeleton = NodePath("")
+[node name="Lights" type="Node3D" parent="."]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.51503, 0)
+omni_range = 6.31247
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.51503, 8)
+omni_range = 6.31247
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1.51503, 2)
+omni_range = 6.31247
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lights"]
+light_color = Color(1, 0.9025, 0.87, 1)
 
 [node name="HUD" type="CanvasLayer" parent="."]
 script = ExtResource("5_fvnsb")
@@ -129,34 +143,6 @@ offset_bottom = 648.0
 step = 1.0
 fill_mode = 3
 show_percentage = false
-
-[node name="GridMap" type="GridMap" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 1)
-mesh_library = ExtResource("7_gbb08")
-cell_center_y = false
-collision_layer = 2
-collision_mask = 5
-data = {
-"cells": PackedInt32Array(65531, 65534, 3, 65531, 65535, 3, 65531, 0, 3, 65530, 0, 3, 65530, 65534, 3, 65532, 65534, 3, 65532, 65535, 3, 65532, 0, 3, 65529, 65535, 655360, 65530, 65533, 1048576, 65531, 65533, 1048576, 65532, 65533, 1048576, 65531, 1, 1441797, 65533, 65533, 1048577, 65533, 1, 1, 65533, 65534, 0, 65533, 65535, 0, 65533, 0, 0, 65529, 0, 1441796, 65530, 1, 1441792, 65529, 1, 1441793, 65528, 0, 1441794, 65527, 0, 1441794, 65532, 1, 1441792, 65531, 2, 6, 65531, 3, 2, 65531, 4, 2)
-}
-metadata/_editor_floor_ = Vector3(0, 0, 0)
-
-[node name="Lights" type="Node3D" parent="."]
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.51503, 0)
-omni_range = 6.31247
-
-[node name="OmniLight3D2" type="OmniLight3D" parent="Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.51503, 8)
-omni_range = 6.31247
-
-[node name="OmniLight3D3" type="OmniLight3D" parent="Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1.51503, 2)
-omni_range = 6.31247
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lights"]
-light_color = Color(1, 0.9025, 0.87, 1)
 
 [node name="Pause" type="CanvasLayer" parent="."]
 

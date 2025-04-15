@@ -15,6 +15,7 @@
 script = ExtResource("1_cwpil")
 
 [node name="Hurtbox" type="Area3D" parent="."]
+collision_layer = 4
 script = ExtResource("2_cwpil")
 metadata/_custom_type_script = "uid://dnf2o5uulaeks"
 
@@ -42,17 +43,20 @@ debug_shape_custom_color = Color(1, 1, 0, 1)
 target_position = Vector3(0, 0, 2)
 debug_shape_custom_color = Color(0, 0, 1, 1)
 
+[node name="MovementRaycast" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, -2)
+collision_mask = 2
+
 [node name="Hitbox" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+collision_layer = 4
 script = ExtResource("1_ba46g")
 metadata/_custom_type_script = "uid://b5u1gexby67pj"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
 shape = SubResource("BoxShape3D_ylgmt")
 
-[node name="MovementRaycast" type="RayCast3D" parent="."]
-target_position = Vector3(0, 0, -2)
-
 [node name="Health" type="Node" parent="."]
 script = ExtResource("4_cfso3")
+health = 1
 metadata/_custom_type_script = "uid://c5snw17oe722c"

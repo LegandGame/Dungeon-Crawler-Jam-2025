@@ -9,10 +9,13 @@ const MAX_HP = 40
 @onready var rayLeft : RayCast3D = $RayCastLeft
 @onready var hurtBox : Hurtbox = $Hurtbox
 @onready var health : Health = $Health
+@onready var animPlayer : AnimationPlayer = $AnimationPlayer
 
 var tween
 var speed : int = 1
-signal player_step
+# # used to prevent weird shenanigans with attacking while moving (MUST be @export for animation)
+@export var is_attacking : bool = false
+signal player_step	# might wanna change this to something like "player_turn_end" if have time
 signal player_HealthChange
 
 func _ready() -> void:
@@ -21,12 +24,15 @@ func _ready() -> void:
 	health.setHealth(MAX_HP)
 	
 func _physics_process(_delta: float) -> void:
-	# check that we arent mid-move
+	# check that we arent mid action before trying to do another action
 	if tween:
 		if tween.is_running():
 			return
+	if is_attacking:
+		return
+	
 	# movement
-	if Input.is_action_pressed("move_forward") :
+	if Input.is_action_pressed("move_forward"):
 		moveForward()
 	if Input.is_action_pressed("move_back"):
 		moveBack()
@@ -35,13 +41,16 @@ func _physics_process(_delta: float) -> void:
 	if Input.is_action_pressed("strafe_right"):
 		moveRight()
 	# rotation
-	if Input.is_action_pressed("turn_clock"):
+	if Input.is_action_just_pressed("turn_clock"):
 		rotateRight()
-	if Input.is_action_pressed("turn_counter"):
+	if Input.is_action_just_pressed("turn_counter"):
 		rotateLeft()
 	# wait
 	if Input.is_action_pressed("wait"):
 		player_step.emit()
+	# attack
+	if Input.is_action_just_pressed("attack"):
+		attack()
 
 func takeDamage(damage :int) -> void:
 	health.damage(damage)
@@ -81,4 +90,6 @@ func rotateRight() -> void:
 	tween = create_tween()
 	tween.tween_property(self, "transform", transform.rotated_local(Vector3.UP, -PI/2), TRAVEL_TIME)
 
-	
+func attack() -> void:
+	animPlayer.play("attack")
+	player_step.emit()

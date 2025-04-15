@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ddgeybu0nfdaa"]
 
-[ext_resource type="Script" uid="uid://b0a00jhluvtkh" path="res://UI/gameover_menu.gd" id="1_34whb"]
+[ext_resource type="Script" uid="uid://b0a00jhluvtkh" path="res://UI/Game Over Menu/gameover_menu.gd" id="1_34whb"]
 
 [node name="GameOverMenu" type="Control"]
 visible = false
