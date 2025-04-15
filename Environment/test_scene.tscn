@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://lfwam0gb06br"]
+[gd_scene load_steps=15 format=3 uid="uid://lfwam0gb06br"]
 
 [ext_resource type="PackedScene" uid="uid://sdyq6qh25kh" path="res://Entites/Player/player.tscn" id="1_c06ff"]
 [ext_resource type="Script" uid="uid://c31kh8h8m8ftc" path="res://Environment/test_scene.gd" id="1_v1n0n"]
@@ -8,6 +8,8 @@
 [ext_resource type="Script" uid="uid://dw4htn6xntn3t" path="res://Environment/hud.gd" id="5_fvnsb"]
 [ext_resource type="Script" uid="uid://thhhk4qd7l8b" path="res://Environment/movement_ui.gd" id="5_gqipa"]
 [ext_resource type="MeshLibrary" uid="uid://brxlkwk3b3gar" path="res://Assets/Models/dungeon_tiles.tres" id="7_gbb08"]
+[ext_resource type="PackedScene" uid="uid://ddgeybu0nfdaa" path="res://UI/gameover_menu.tscn" id="9_5b75d"]
+[ext_resource type="PackedScene" uid="uid://co2j7rusbpalw" path="res://UI/pause_menu.tscn" id="9_pma81"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_p6cpw"]
 size = Vector3(10, 0.1, 10)
@@ -153,3 +155,9 @@ omni_range = 6.31247
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lights"]
 light_color = Color(1, 0.9025, 0.87, 1)
+
+[node name="Pause" type="CanvasLayer" parent="."]
+
+[node name="GameOverMenu" parent="Pause" instance=ExtResource("9_5b75d")]
+
+[node name="PauseMenu" parent="Pause" instance=ExtResource("9_pma81")]

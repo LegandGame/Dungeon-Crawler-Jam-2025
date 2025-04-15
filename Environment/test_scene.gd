@@ -37,8 +37,8 @@ func get_mouse_position(mouse:Vector2):
 		print(result)
 		
 func reduce_time_remaining():
-	timeRemaining -= randi_range(5,10)
+	timeRemaining -= randi_range(Globs.TIME_REMAINING_LOWER,Globs.TIME_REMAINING_UPPER)
 	$HUD.update_with_tween(Globs.TIME_REMAINING_MAX, timeRemaining)
 	if timeRemaining <= 0:
-		print("GAME OVER!")
+		$Pause/GameOverMenu.gameover()
 	
