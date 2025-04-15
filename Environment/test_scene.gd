@@ -1,16 +1,19 @@
 extends Node3D
 
 var mouse = Vector2()
+var timeRemaining = Globs.TIME_REMAINING_MAX
 const DIST = 3
 
 func _ready():
 	$player.player_HealthChange.connect($"HUD/HP UI/HP Bar".update_with_tween)
+	$player.player_step.connect(reduce_time_remaining)
 	$"HUD/Movement UI".movement_UI_Pressed_D.connect($player.moveBack)
 	$"HUD/Movement UI".movement_UI_Pressed_U.connect($player.moveForward)
 	$"HUD/Movement UI".movement_UI_Pressed_L.connect($player.moveLeft)
 	$"HUD/Movement UI".movement_UI_Pressed_R.connect($player.moveRight)
 	$"HUD/Movement UI".movement_UI_Pressed_rL.connect($player.rotateLeft)
 	$"HUD/Movement UI".movement_UI_Pressed_rR.connect($player.rotateRight)
+	
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
@@ -32,3 +35,10 @@ func get_mouse_position(mouse:Vector2):
 	var result = space.intersect_ray(params)
 	if result.is_empty() == false:
 		print(result)
+		
+func reduce_time_remaining():
+	timeRemaining -= randi_range(5,10)
+	$HUD.update_with_tween(Globs.TIME_REMAINING_MAX, timeRemaining)
+	if timeRemaining <= 0:
+		print("GAME OVER!")
+	

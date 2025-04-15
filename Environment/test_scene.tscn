@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://lfwam0gb06br"]
+[gd_scene load_steps=13 format=3 uid="uid://lfwam0gb06br"]
 
 [ext_resource type="PackedScene" uid="uid://sdyq6qh25kh" path="res://Entites/Player/player.tscn" id="1_c06ff"]
 [ext_resource type="Script" uid="uid://c31kh8h8m8ftc" path="res://Environment/test_scene.gd" id="1_v1n0n"]
 [ext_resource type="Script" uid="uid://b5u1gexby67pj" path="res://Common/Hitbox Component/hitbox_component.gd" id="3_1ctfe"]
 [ext_resource type="PackedScene" uid="uid://c1r5j1f33knm" path="res://Entites/Hostage/hostage.tscn" id="3_gbjsn"]
 [ext_resource type="Script" uid="uid://brwgb3jucspw5" path="res://Environment/hp_bar.gd" id="4_1ctfe"]
+[ext_resource type="Script" uid="uid://dw4htn6xntn3t" path="res://Environment/hud.gd" id="5_fvnsb"]
 [ext_resource type="Script" uid="uid://thhhk4qd7l8b" path="res://Environment/movement_ui.gd" id="5_gqipa"]
 [ext_resource type="MeshLibrary" uid="uid://brxlkwk3b3gar" path="res://Assets/Models/dungeon_tiles.tres" id="7_gbb08"]
 
@@ -40,6 +41,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 4)
 [node name="Test Hitbox" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -4)
 script = ExtResource("3_1ctfe")
+value = 10
 metadata/_custom_type_script = "uid://b5u1gexby67pj"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Test Hitbox"]
@@ -50,6 +52,7 @@ mesh = SubResource("SphereMesh_de3vn")
 skeleton = NodePath("")
 
 [node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource("5_fvnsb")
 
 [node name="Movement UI" type="GridContainer" parent="HUD"]
 anchors_preset = 2
@@ -96,10 +99,10 @@ text = "Right"
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -331.0
+offset_left = -1132.0
 offset_top = 20.0
-offset_right = -30.0
-offset_bottom = 60.0
+offset_right = -830.0
+offset_bottom = 52.0
 grow_horizontal = 0
 split_offset = 30
 
@@ -115,6 +118,15 @@ tooltip_text = "Hp:"
 step = 1.0
 value = 100.0
 script = ExtResource("4_1ctfe")
+
+[node name="TimeRemaining" type="ProgressBar" parent="HUD"]
+self_modulate = Color(0.0352941, 0.545098, 0.913725, 1)
+offset_left = 1130.0
+offset_right = 1152.0
+offset_bottom = 648.0
+step = 1.0
+fill_mode = 3
+show_percentage = false
 
 [node name="GridMap" type="GridMap" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 1)

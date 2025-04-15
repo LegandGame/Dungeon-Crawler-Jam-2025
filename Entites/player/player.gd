@@ -18,9 +18,7 @@ signal player_HealthChange
 func _ready() -> void:
 	# connect all signals here
 	hurtBox.connect("hurt", takeDamage)
-	
 	health.setHealth(MAX_HP)
-	health.connect("health_empty", game_over)
 	
 func _physics_process(_delta: float) -> void:
 	# check that we arent mid-move
@@ -48,6 +46,8 @@ func _physics_process(_delta: float) -> void:
 func takeDamage(damage :int) -> void:
 	health.damage(damage)
 	player_HealthChange.emit(MAX_HP,health.health)
+	if health.health <= 0:
+		get_tree().reload_current_scene()
 
 func moveForward() -> void:
 	if not rayFront.is_colliding():
@@ -81,6 +81,4 @@ func rotateRight() -> void:
 	tween = create_tween()
 	tween.tween_property(self, "transform", transform.rotated_local(Vector3.UP, -PI/2), TRAVEL_TIME)
 
-func game_over() -> void:
-	print("GAME OVER!")
 	
