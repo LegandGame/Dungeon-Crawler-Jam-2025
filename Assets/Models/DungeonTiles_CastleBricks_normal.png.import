@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bn4sax6prg471"
-path.s3tc="res://.godot/imported/CastleBricks_normal.png-18c209b2e64954e50f761a099becf6ac.s3tc.ctex"
+uid="uid://clvx2kwrbyxpq"
+path.s3tc="res://.godot/imported/DungeonTiles_CastleBricks_normal.png-20b8b4b8a3fabe5c7952b0615ccf137b.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "2d7ec5e0ff5ac30804df74eba07f9f88"
+}
 
 [deps]
 
-source_file="res://Assets/Textures/CastleBricks_normal.png"
-dest_files=["res://.godot/imported/CastleBricks_normal.png-18c209b2e64954e50f761a099becf6ac.s3tc.ctex"]
+source_file="res://Assets/Models/DungeonTiles_CastleBricks_normal.png"
+dest_files=["res://.godot/imported/DungeonTiles_CastleBricks_normal.png-20b8b4b8a3fabe5c7952b0615ccf137b.s3tc.ctex"]
 
 [params]
 
@@ -25,7 +28,7 @@ compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=1
-roughness/src_normal="res://Assets/Textures/CastleBricks_normal.png"
+roughness/src_normal="res://Assets/Models/DungeonTiles_CastleBricks_normal.png"
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

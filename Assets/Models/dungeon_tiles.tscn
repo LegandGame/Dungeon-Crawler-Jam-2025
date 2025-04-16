@@ -1,27 +1,5 @@
-[gd_scene load_steps=3 format=3 uid="uid://d0kon5nw1hfd1"]
+[gd_scene load_steps=2 format=3 uid="uid://d0kon5nw1hfd1"]
 
-[ext_resource type="PackedScene" uid="uid://bv4x0bjotkv6j" path="res://Assets/Models/DungeonTiles.glb" id="1_nrm3g"]
-[ext_resource type="Material" uid="uid://btt8s3xa73b2a" path="res://Assets/Materials/CastleBricks.tres" id="2_tlav1"]
+[ext_resource type="PackedScene" uid="uid://cwnretts2jsi1" path="res://Assets/Models/DungeonTiles.glb" id="1_nrm3g"]
 
 [node name="DungeonTiles" instance=ExtResource("1_nrm3g")]
-
-[node name="Tile_Wall" parent="." index="0"]
-material_override = ExtResource("2_tlav1")
-
-[node name="Tile-Corner" parent="." index="1"]
-material_override = ExtResource("2_tlav1")
-
-[node name="Tile-Corridor" parent="." index="2"]
-material_override = ExtResource("2_tlav1")
-
-[node name="Tile_Open" parent="." index="3"]
-material_override = ExtResource("2_tlav1")
-
-[node name="Tile_WallToCorridor" parent="." index="4"]
-material_override = ExtResource("2_tlav1")
-
-[node name="Tile_Door_Wall" parent="." index="5"]
-material_override = ExtResource("2_tlav1")
-
-[node name="Tile_Door_Corridor" parent="." index="6"]
-material_override = ExtResource("2_tlav1")

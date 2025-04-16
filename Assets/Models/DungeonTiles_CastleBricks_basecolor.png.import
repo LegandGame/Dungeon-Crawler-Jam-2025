@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmuqvfksxpvyn"
-path.s3tc="res://.godot/imported/CastleBricks_basecolor.png-654a730415ad53435f38905dcf886527.s3tc.ctex"
+uid="uid://dxwe2jq52qd03"
+path.s3tc="res://.godot/imported/DungeonTiles_CastleBricks_basecolor.png-5c52fc9a322199d19d42867e91d44121.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "5760afcb475b84cdc5c583118d4faad0"
+}
 
 [deps]
 
-source_file="res://Assets/Textures/CastleBricks_basecolor.png"
-dest_files=["res://.godot/imported/CastleBricks_basecolor.png-654a730415ad53435f38905dcf886527.s3tc.ctex"]
+source_file="res://Assets/Models/DungeonTiles_CastleBricks_basecolor.png"
+dest_files=["res://.godot/imported/DungeonTiles_CastleBricks_basecolor.png-5c52fc9a322199d19d42867e91d44121.s3tc.ctex"]
 
 [params]
 

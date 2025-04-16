@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbpwm4b61gbx2"
-path.s3tc="res://.godot/imported/CastleBricks_ORM.png-48b92f1de4adbc21baac3060840a0dfc.s3tc.ctex"
+uid="uid://ck0cuwtdh762q"
+path.s3tc="res://.godot/imported/DungeonTiles_CastleBricks_ORM.png-62737a043dd91156b9ff9a8900c7aeaf.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "a0d6f8e7175e8581322d411a872b3e91"
+}
 
 [deps]
 
-source_file="res://Assets/Textures/CastleBricks_ORM.png"
-dest_files=["res://.godot/imported/CastleBricks_ORM.png-48b92f1de4adbc21baac3060840a0dfc.s3tc.ctex"]
+source_file="res://Assets/Models/DungeonTiles_CastleBricks_ORM.png"
+dest_files=["res://.godot/imported/DungeonTiles_CastleBricks_ORM.png-62737a043dd91156b9ff9a8900c7aeaf.s3tc.ctex"]
 
 [params]
 
