@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://lfwam0gb06br"]
 
-[ext_resource type="PackedScene" uid="uid://sdyq6qh25kh" path="res://Entites/Player/player.tscn" id="1_c06ff"]
+[ext_resource type="PackedScene" uid="uid://sdyq6qh25kh" path="res://Entites/player/player.tscn" id="1_c06ff"]
 [ext_resource type="Script" uid="uid://c31kh8h8m8ftc" path="res://Environment/test_scene.gd" id="1_v1n0n"]
 [ext_resource type="PackedScene" uid="uid://c1r5j1f33knm" path="res://Entites/Hostage/hostage.tscn" id="3_gbjsn"]
 [ext_resource type="Script" uid="uid://brwgb3jucspw5" path="res://UI/HUD/hp_bar.gd" id="4_1ctfe"]
@@ -39,32 +39,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 4)
 [node name="Enemy" parent="." instance=ExtResource("4_5b75d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -4)
 
-[node name="GridMap" type="GridMap" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 1)
-mesh_library = ExtResource("7_gbb08")
-cell_center_y = false
-collision_layer = 2
-collision_mask = 5
-data = {
-"cells": PackedInt32Array(65531, 65534, 3, 65531, 65535, 3, 65531, 0, 3, 65530, 0, 3, 65530, 65534, 3, 65532, 65534, 3, 65532, 65535, 3, 65532, 0, 3, 65529, 65535, 655360, 65530, 65533, 1048576, 65531, 65533, 1048576, 65532, 65533, 1048576, 65531, 1, 1441797, 65533, 65533, 1048577, 65533, 1, 1, 65533, 65534, 0, 65533, 65535, 0, 65533, 0, 0, 65529, 0, 1441796, 65530, 1, 1441792, 65529, 1, 1441793, 65528, 0, 1441794, 65527, 0, 1441794, 65532, 1, 1441792, 65531, 2, 6, 65531, 3, 2, 65531, 4, 2)
-}
-metadata/_editor_floor_ = Vector3(0, 0, 0)
-
 [node name="Lights" type="Node3D" parent="."]
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Lights"]
+[node name="OmniLight3D1" type="OmniLight3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.51503, 0)
+visible = false
 omni_range = 6.31247
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.51503, 8)
+visible = false
 omni_range = 6.31247
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1.51503, 2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0.51503, 2)
+visible = false
 omni_range = 6.31247
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lights"]
+transform = Transform3D(0.866025, 0.25, 0.433013, -0.5, 0.433013, 0.75, 0, -0.866025, 0.5, 0, 0, 0)
 light_color = Color(1, 0.9025, 0.87, 1)
 
 [node name="HUD" type="CanvasLayer" parent="."]
@@ -144,7 +137,7 @@ step = 1.0
 fill_mode = 3
 show_percentage = false
 
-[node name="GridMap" type="GridMap" parent="."]
+[node name="GridMap1" type="GridMap" parent="."]
 mesh_library = ExtResource("7_gbb08")
 cell_center_y = false
 collision_layer = 2
@@ -153,27 +146,6 @@ data = {
 "cells": PackedInt32Array(0, 65533, 1048579, 0, 65534, 1048579, 0, 65535, 1048579, 0, 0, 1048579, 0, 1, 1048579, 0, 2, 1048579, 0, 3, 1048579, 65535, 3, 1048579, 65534, 3, 1048579, 65534, 2, 1048579, 65534, 1, 1048579, 65534, 0, 1048579, 65534, 65535, 1048579, 65534, 65534, 1048579, 65535, 65533, 1048579, 65535, 65534, 1048579, 65535, 65535, 1048579, 65535, 0, 1048579, 65535, 1, 1048579, 65535, 2, 1048579, 65533, 65535, 655365, 65533, 65534, 655361, 65533, 0, 1441793, 65532, 65535, 1441798, 65531, 65535, 1441794, 65530, 65535, 1441794, 65529, 65535, 1048582, 65528, 65535, 5, 65528, 65534, 1048577, 65527, 65534, 655361, 65527, 65535, 655360, 65527, 0, 655365, 65527, 1, 1441793, 65528, 1, 1, 65528, 0, 0, 65526, 0, 1441798, 65525, 65535, 0, 65525, 65534, 1048577, 65524, 65534, 1048576, 65524, 65535, 655363, 65523, 65534, 655364, 65522, 65534, 655361, 65522, 65535, 655360, 65522, 0, 1441793, 65523, 65535, 3, 65523, 65533, 2, 65523, 65532, 2, 65523, 0, 1441797, 65524, 0, 1441792, 65525, 0, 4, 65525, 1, 655362, 65525, 2, 655362, 65523, 1, 6, 65523, 2, 2, 65523, 3, 655366)
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
-
-[node name="Lights" type="Node3D" parent="."]
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.51503, 0)
-visible = false
-omni_range = 6.31247
-
-[node name="OmniLight3D2" type="OmniLight3D" parent="Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.51503, 8)
-visible = false
-omni_range = 6.31247
-
-[node name="OmniLight3D3" type="OmniLight3D" parent="Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0.51503, 2)
-visible = false
-omni_range = 6.31247
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lights"]
-transform = Transform3D(0.866025, 0.25, 0.433013, -0.5, 0.433013, 0.75, 0, -0.866025, 0.5, 0, 0, 0)
-light_color = Color(1, 0.9025, 0.87, 1)
 
 [node name="Pause" type="CanvasLayer" parent="."]
 
