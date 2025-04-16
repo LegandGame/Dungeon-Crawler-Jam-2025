@@ -1,6 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://lfwam0gb06br"]
+[gd_scene load_steps=14 format=3 uid="uid://lfwam0gb06br"]
 
-[ext_resource type="PackedScene" uid="uid://sdyq6qh25kh" path="res://Entites/player/player.tscn" id="1_c06ff"]
+[ext_resource type="PackedScene" uid="uid://sdyq6qh25kh" path="res://Entites/Player/player.tscn" id="1_c06ff"]
 [ext_resource type="Script" uid="uid://c31kh8h8m8ftc" path="res://Environment/test_scene.gd" id="1_v1n0n"]
 [ext_resource type="PackedScene" uid="uid://c1r5j1f33knm" path="res://Entites/Hostage/hostage.tscn" id="3_gbjsn"]
 [ext_resource type="Script" uid="uid://brwgb3jucspw5" path="res://UI/HUD/hp_bar.gd" id="4_1ctfe"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://dw4htn6xntn3t" path="res://UI/HUD/hud.gd" id="5_fvnsb"]
 [ext_resource type="Script" uid="uid://thhhk4qd7l8b" path="res://UI/HUD/movement_ui.gd" id="5_gqipa"]
 [ext_resource type="MeshLibrary" uid="uid://brxlkwk3b3gar" path="res://Assets/Models/dungeon_tiles.tres" id="7_gbb08"]
+[ext_resource type="PackedScene" uid="uid://blu3qvqm7gegr" path="res://UI/Inventory/inventory.tscn" id="8_mm60m"]
 [ext_resource type="PackedScene" uid="uid://ddgeybu0nfdaa" path="res://UI/Game Over Menu/gameover_menu.tscn" id="9_5b75d"]
 [ext_resource type="PackedScene" uid="uid://co2j7rusbpalw" path="res://UI/Pause Menu/pause_menu.tscn" id="9_pma81"]
 
@@ -137,6 +138,12 @@ step = 1.0
 fill_mode = 3
 show_percentage = false
 
+[node name="Inventory" parent="HUD" instance=ExtResource("8_mm60m")]
+offset_left = 20.0
+offset_top = 75.0
+offset_right = 40.416
+offset_bottom = 94.912
+
 [node name="GridMap1" type="GridMap" parent="."]
 mesh_library = ExtResource("7_gbb08")
 cell_center_y = false
@@ -147,8 +154,8 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
-[node name="Pause" type="CanvasLayer" parent="."]
+[node name="Screens" type="CanvasLayer" parent="."]
 
-[node name="GameOverMenu" parent="Pause" instance=ExtResource("9_5b75d")]
+[node name="GameOverMenu" parent="Screens" instance=ExtResource("9_5b75d")]
 
-[node name="PauseMenu" parent="Pause" instance=ExtResource("9_pma81")]
+[node name="PauseMenu" parent="Screens" instance=ExtResource("9_pma81")]

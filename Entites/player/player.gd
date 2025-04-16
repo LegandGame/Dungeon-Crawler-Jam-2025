@@ -11,6 +11,9 @@ const MAX_HP = 40
 @onready var health : Health = $Health
 @onready var animPlayer : AnimationPlayer = $AnimationPlayer
 
+@export var inventory_data: InventoryData
+
+
 var tween
 var speed : int = 1
 # # used to prevent weird shenanigans with attacking while moving (MUST be @export for animation)

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://ctrft8bsv62iu"]
+
+[ext_resource type="Script" uid="uid://c4nxppmxu4tok" path="res://UI/Inventory/item_data.gd" id="1_sp6sr"]
+[ext_resource type="Texture2D" uid="uid://rsfw0geh1jje" path="res://Assets/Icons/key_blue.png" id="2_jnsql"]
+
+[resource]
+script = ExtResource("1_sp6sr")
+name = ""
+stackable = false
+texture = ExtResource("2_jnsql")
+metadata/_custom_type_script = "uid://c4nxppmxu4tok"

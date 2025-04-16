@@ -6,6 +6,7 @@ const DIST = 3
 
 @onready var movementUI := $"HUD/Movement UI"
 @onready var player := $player
+@onready var inventory: PanelContainer = $HUD/Inventory
 
 func _ready():
 	player.player_HealthChange.connect($"HUD/HP UI/HP Bar".update_with_tween)
@@ -16,7 +17,7 @@ func _ready():
 	movementUI.movement_UI_Pressed_R.connect(player.moveRight)
 	movementUI.movement_UI_Pressed_rL.connect(player.rotateLeft)
 	movementUI.movement_UI_Pressed_rR.connect(player.rotateRight)
-	
+	inventory.set_inventory_data(player.inventory_data)
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
@@ -43,5 +44,5 @@ func reduce_time_remaining():
 	timeRemaining -= randi_range(Globs.TIME_REMAINING_LOWER,Globs.TIME_REMAINING_UPPER)
 	$HUD.update_with_tween(Globs.TIME_REMAINING_MAX, timeRemaining)
 	if timeRemaining <= 0:
-		$Pause/GameOverMenu.gameover()
+		$Screens/GameOverMenu.gameover()
 	
