@@ -4,15 +4,18 @@ var mouse = Vector2()
 var timeRemaining = Globs.TIME_REMAINING_MAX
 const DIST = 3
 
+@onready var movementUI := $"HUD/Movement UI"
+@onready var player := $player
+
 func _ready():
-	$player.player_HealthChange.connect($"HUD/HP UI/HP Bar".update_with_tween)
-	$player.player_step.connect(reduce_time_remaining)
-	$"HUD/Movement UI".movement_UI_Pressed_D.connect($player.moveBack)
-	$"HUD/Movement UI".movement_UI_Pressed_U.connect($player.moveForward)
-	$"HUD/Movement UI".movement_UI_Pressed_L.connect($player.moveLeft)
-	$"HUD/Movement UI".movement_UI_Pressed_R.connect($player.moveRight)
-	$"HUD/Movement UI".movement_UI_Pressed_rL.connect($player.rotateLeft)
-	$"HUD/Movement UI".movement_UI_Pressed_rR.connect($player.rotateRight)
+	player.player_HealthChange.connect($"HUD/HP UI/HP Bar".update_with_tween)
+	player.player_step.connect(reduce_time_remaining)
+	movementUI.movement_UI_Pressed_D.connect(player.moveBack)
+	movementUI.movement_UI_Pressed_U.connect(player.moveForward)
+	movementUI.movement_UI_Pressed_L.connect(player.moveLeft)
+	movementUI.movement_UI_Pressed_R.connect(player.moveRight)
+	movementUI.movement_UI_Pressed_rL.connect(player.rotateLeft)
+	movementUI.movement_UI_Pressed_rR.connect(player.rotateRight)
 	
 
 func _input(event: InputEvent) -> void:

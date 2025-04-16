@@ -26,8 +26,8 @@ func _ready() -> void:
 func move() -> void:
 	# NOTE: don't want enemies to be able to side/back step since it looks weird. (we are fine with instant turns)
 	# move forward
-	tween = create_tween()
-	tween.tween_property(self, "transform", transform.translated_local(Vector3.FORWARD * Globs.TILEWIDTH), TRAVEL_TIME)
+	#tween = create_tween()
+	#tween.tween_property(self, "transform", transform.translated_local(Vector3.FORWARD * Globs.TILEWIDTH), TRAVEL_TIME)
 	# turn clockwise
 	self.transform.rotated_local(Vector3.UP, -PI/2)
 	# turn counter clockwise

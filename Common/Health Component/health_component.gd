@@ -1,6 +1,6 @@
 class_name Health extends Node
 		
-var health : int :
+@export var health : int :
 	set(value):
 		health = value
 

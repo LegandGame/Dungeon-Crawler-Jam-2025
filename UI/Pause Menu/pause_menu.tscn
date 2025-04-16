@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://co2j7rusbpalw"]
 
-[ext_resource type="Script" uid="uid://dqo3l3ye3k2fa" path="res://UI/pause_menu.gd" id="1_ltd3m"]
+[ext_resource type="Script" uid="uid://dqo3l3ye3k2fa" path="res://UI/Pause Menu/pause_menu.gd" id="1_ltd3m"]
 
 [node name="PauseMenu" type="Control"]
 visible = false
