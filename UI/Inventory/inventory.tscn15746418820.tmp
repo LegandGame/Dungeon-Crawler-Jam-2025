@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://blu3qvqm7gegr"]
+
+[ext_resource type="Script" uid="uid://bpr6xnu5xl44b" path="res://UI/Inventory/inventory.gd" id="1_ym3yg"]
+[ext_resource type="Resource" uid="uid://03ig3dxsiktw" path="res://UI/Inventory/blank_inventory.tres" id="2_k5s52"]
+
+[node name="Inventory" type="PanelContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_ym3yg")
+inventory_blank = ExtResource("2_k5s52")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
