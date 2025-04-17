@@ -8,7 +8,7 @@ const DIST = 3
 @onready var player := $player
 @onready var inventory: PanelContainer = $HUD/Inventory
 @onready var hostage: Area3D = $Hostage
-@onready var hostage_2: Area3D = $Hostage2
+#@onready var hostage_2: Area3D = $Hostage2
 
 func _ready():
 	player.player_HealthChange.connect($"HUD/HP UI/HP Bar".update_with_tween)
@@ -20,10 +20,10 @@ func _ready():
 	movementUI.movement_UI_Pressed_rL.connect(player.rotateLeft)
 	movementUI.movement_UI_Pressed_rR.connect(player.rotateRight)
 	hostage.add_to_inventory.connect(player.update_inventory)
-	hostage_2.add_to_inventory.connect(player.update_inventory)
+	#hostage_2.add_to_inventory.connect(player.update_inventory)
 	player.update_inventory_visual.connect(inventory.set_inventory_data)
 	player.free_hostage.connect(hostage.rescue)
-	player.free_hostage.connect(hostage_2.rescue)
+	#player.free_hostage.connect(hostage_2.rescue)
 	inventory.set_inventory_data(player.inventory_data)
 	
 

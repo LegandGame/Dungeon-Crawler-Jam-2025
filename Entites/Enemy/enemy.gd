@@ -17,7 +17,6 @@ const TRAVEL_TIME := 0.1
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	get_tree().get_first_node_in_group("player").connect("player_step", step)
-	$Hitbox.monitoring = false	# DEBUG: temporary
 	hurtbox.connect("hurt", health.damage)
 	health.connect("health_empty", die)
 	playerRef = get_tree().get_first_node_in_group("player")
@@ -41,7 +40,6 @@ func step() -> void:
 			var dotF = forwardFacing.dot(dirToPlayer)
 			# -1 = rights, 1 = left
 			var dotR = rightFacing.dot(dirToPlayer)
-			print(dotF, " ", dotR)
 			# actually facing the right way
 			if dotF >= 0.2:		#player is in front of us. do nothing
 				pass

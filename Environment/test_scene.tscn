@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b5f4r47go48rj"]
+[gd_scene load_steps=18 format=3 uid="uid://lfwam0gb06br"]
 
 [ext_resource type="PackedScene" uid="uid://sdyq6qh25kh" path="res://Entites/Player/player.tscn" id="1_c06ff"]
 [ext_resource type="Script" uid="uid://c31kh8h8m8ftc" path="res://Environment/test_scene.gd" id="1_v1n0n"]
@@ -55,17 +55,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -3)
 
 [node name="OmniLight3D1" type="OmniLight3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.51503, 0)
-visible = false
 omni_range = 6.31247
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.51503, 8)
-visible = false
 omni_range = 6.31247
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0.51503, 2)
-visible = false
 omni_range = 6.31247
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lights"]

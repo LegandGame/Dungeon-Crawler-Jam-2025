@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Dungeon Crawler Jam 2025"
-run/main_scene="uid://sdyq6qh25kh"
+run/main_scene="uid://lfwam0gb06br"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
