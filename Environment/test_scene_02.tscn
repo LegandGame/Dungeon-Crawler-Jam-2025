@@ -1,0 +1,175 @@
+[gd_scene load_steps=18 format=3 uid="uid://cxkxq2k64w6cp"]
+
+[ext_resource type="Script" uid="uid://c31kh8h8m8ftc" path="res://Environment/test_scene.gd" id="1_k8w3t"]
+[ext_resource type="PackedScene" uid="uid://sdyq6qh25kh" path="res://Entites/player/player.tscn" id="2_dljc3"]
+[ext_resource type="PackedScene" uid="uid://c1r5j1f33knm" path="res://Entites/Hostage/hostage.tscn" id="3_gbshi"]
+[ext_resource type="PackedScene" uid="uid://ccnvmwxx1fwl1" path="res://Entites/Enemy/enemy.tscn" id="4_eon23"]
+[ext_resource type="Script" uid="uid://dw4htn6xntn3t" path="res://UI/HUD/hud.gd" id="5_a5nva"]
+[ext_resource type="Script" uid="uid://thhhk4qd7l8b" path="res://UI/HUD/movement_ui.gd" id="6_ektn7"]
+[ext_resource type="Script" uid="uid://brwgb3jucspw5" path="res://UI/HUD/hp_bar.gd" id="7_bw26b"]
+[ext_resource type="PackedScene" uid="uid://blu3qvqm7gegr" path="res://UI/Inventory/inventory.tscn" id="8_sh8gt"]
+[ext_resource type="MeshLibrary" uid="uid://brxlkwk3b3gar" path="res://Assets/Models/dungeon_tiles.tres" id="9_2koem"]
+[ext_resource type="PackedScene" uid="uid://ddgeybu0nfdaa" path="res://UI/Game Over Menu/gameover_menu.tscn" id="10_te63t"]
+[ext_resource type="PackedScene" uid="uid://co2j7rusbpalw" path="res://UI/Pause Menu/pause_menu.tscn" id="11_fy231"]
+[ext_resource type="Texture2D" uid="uid://b14n4vrnvntgj" path="res://Assets/Textures/industrial_sunset_puresky_4k.exr" id="12_jt4gb"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_p6cpw"]
+size = Vector3(10, 0.1, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c06ff"]
+size = Vector3(10, 0.1, 10)
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_iamwp"]
+panorama = ExtResource("12_jt4gb")
+
+[sub_resource type="Sky" id="Sky_m313d"]
+sky_material = SubResource("PanoramaSkyMaterial_iamwp")
+
+[sub_resource type="Environment" id="Environment_0mift"]
+background_mode = 2
+sky = SubResource("Sky_m313d")
+
+[node name="Test Scene" type="Node3D"]
+script = ExtResource("1_k8w3t")
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+visible = false
+mesh = SubResource("BoxMesh_p6cpw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+visible = false
+shape = SubResource("BoxShape3D_c06ff")
+
+[node name="player" parent="." instance=ExtResource("2_dljc3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1)
+
+[node name="Hostage" parent="." instance=ExtResource("3_gbshi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 5)
+
+[node name="Enemy" parent="." instance=ExtResource("4_eon23")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -3)
+
+[node name="Lights" type="Node3D" parent="."]
+
+[node name="OmniLight3D1" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.51503, 0)
+visible = false
+omni_range = 6.31247
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.51503, 8)
+visible = false
+omni_range = 6.31247
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0.51503, 2)
+visible = false
+omni_range = 6.31247
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lights"]
+transform = Transform3D(0.866025, 0.25, 0.433013, -0.5, 0.433013, 0.75, 0, -0.866025, 0.5, 0, 0, 0)
+light_color = Color(1, 0.9025, 0.87, 1)
+
+[node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource("5_a5nva")
+
+[node name="Movement UI" type="GridContainer" parent="HUD"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_bottom = -20.0
+grow_vertical = 0
+columns = 3
+script = ExtResource("6_ektn7")
+
+[node name="Turn_L" type="Button" parent="HUD/Movement UI"]
+layout_mode = 2
+action_mode = 0
+text = "Turn Left"
+icon_alignment = 1
+
+[node name="Up" type="Button" parent="HUD/Movement UI"]
+layout_mode = 2
+action_mode = 0
+text = "  Up  "
+
+[node name="Turn_R" type="Button" parent="HUD/Movement UI"]
+layout_mode = 2
+action_mode = 0
+text = "Turn Right"
+
+[node name="Left" type="Button" parent="HUD/Movement UI"]
+layout_mode = 2
+action_mode = 0
+text = "Left"
+
+[node name="Down" type="Button" parent="HUD/Movement UI"]
+layout_mode = 2
+action_mode = 0
+text = "  Down  "
+
+[node name="Right" type="Button" parent="HUD/Movement UI"]
+layout_mode = 2
+action_mode = 0
+text = "Right"
+
+[node name="HP UI" type="HSplitContainer" parent="HUD"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1132.0
+offset_top = 20.0
+offset_right = -830.0
+offset_bottom = 52.0
+grow_horizontal = 0
+split_offset = 30
+
+[node name="HP Label" type="RichTextLabel" parent="HUD/HP UI"]
+layout_mode = 2
+text = "HP:"
+scroll_active = false
+tab_size = 6
+
+[node name="HP Bar" type="ProgressBar" parent="HUD/HP UI"]
+layout_mode = 2
+tooltip_text = "Hp:"
+step = 1.0
+value = 100.0
+script = ExtResource("7_bw26b")
+
+[node name="TimeRemaining" type="ProgressBar" parent="HUD"]
+self_modulate = Color(0.0352941, 0.545098, 0.913725, 1)
+offset_left = 1130.0
+offset_right = 1152.0
+offset_bottom = 648.0
+step = 1.0
+fill_mode = 3
+show_percentage = false
+
+[node name="Inventory" parent="HUD" instance=ExtResource("8_sh8gt")]
+offset_left = 20.0
+offset_top = 75.0
+offset_right = 40.416
+offset_bottom = 94.912
+
+[node name="GridMap1" type="GridMap" parent="."]
+mesh_library = ExtResource("9_2koem")
+cell_center_y = false
+collision_layer = 2
+collision_mask = 5
+data = {
+"cells": PackedInt32Array(0, 65534, 1048579, 0, 65535, 1048579, 0, 0, 1048579, 0, 1, 1048579, 65534, 0, 1048579, 65534, 65535, 1048579, 65534, 65534, 1048579, 65535, 65533, 1048579, 65535, 65534, 1048579, 65535, 65535, 1048579, 65535, 0, 1048579, 65535, 1, 1048579, 65535, 2, 1048579, 65533, 65535, 655365, 65533, 65534, 655361, 65533, 0, 1441793, 65532, 65535, 1441798, 65531, 65535, 1441794, 65530, 65535, 1441794, 65529, 65535, 1048582, 65528, 65535, 5, 65528, 65534, 1048577, 65527, 65534, 655361, 65527, 65535, 655360, 65527, 0, 655365, 65527, 1, 1441793, 65528, 1, 1, 65528, 0, 0, 65526, 0, 1441798, 65525, 65535, 0, 65525, 65534, 1048577, 65524, 65534, 1048576, 65524, 65535, 655363, 65523, 65534, 655364, 65522, 65534, 655361, 65522, 65535, 655360, 65522, 0, 1441793, 65523, 65535, 3, 65523, 65533, 2, 65523, 65532, 2, 65523, 0, 1441797, 65524, 0, 1441792, 65525, 0, 4, 65525, 1, 655362, 65525, 2, 655362, 65523, 1, 6, 65523, 2, 2, 65523, 3, 655366, 1, 1, 7, 1, 65534, 7, 1, 65535, 0, 1, 0, 0, 1, 65533, 0, 1, 2, 0, 1, 3, 1, 1, 65532, 1048577, 0, 65532, 1048576, 65535, 65532, 1048576, 65534, 65532, 655361, 65534, 65533, 655360, 0, 2, 1048585, 0, 65533, 1048585, 65523, 65531, 6, 65525, 3, 655366, 65534, 3, 1441793, 65534, 2, 655360, 65534, 1, 655360, 65535, 3, 1441799, 0, 3, 1441799)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="Screens" type="CanvasLayer" parent="."]
+
+[node name="GameOverMenu" parent="Screens" instance=ExtResource("10_te63t")]
+
+[node name="PauseMenu" parent="Screens" instance=ExtResource("11_fy231")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_0mift")
