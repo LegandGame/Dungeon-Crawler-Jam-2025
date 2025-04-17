@@ -52,7 +52,7 @@ func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("turn_counter"):
 		rotateLeft()
 	# wait
-	if Input.is_action_pressed("wait"):
+	if Input.is_action_just_pressed("wait"):
 		player_step.emit()
 	# attack
 	if Input.is_action_just_pressed("attack"):
