@@ -14,12 +14,15 @@ const MAX_HP = 40
 @export var inventory_data: InventoryData
 
 
+
 var tween
 var speed : int = 1
 # # used to prevent weird shenanigans with attacking while moving (MUST be @export for animation)
 @export var is_attacking : bool = false
 signal player_step	# might wanna change this to something like "player_turn_end" if have time
 signal player_HealthChange
+signal update_inventory_visual
+signal free_hostage
 
 func _ready() -> void:
 	# connect all signals here
@@ -49,7 +52,7 @@ func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed("turn_counter"):
 		rotateLeft()
 	# wait
-	if Input.is_action_pressed("wait"):
+	if Input.is_action_just_pressed("wait"):
 		player_step.emit()
 	# attack
 	if Input.is_action_just_pressed("attack"):
@@ -96,3 +99,18 @@ func rotateRight() -> void:
 func attack() -> void:
 	animPlayer.play("attack")
 	player_step.emit()
+
+func update_inventory(item: Texture) -> void:
+	for slot in inventory_data.slot_datas:
+		if !slot.item_data.texture:
+			slot.item_data.texture = item
+			update_inventory_visual.emit(inventory_data)
+			free_hostage.emit()
+			return
+
+func clear_inventory() ->void:
+	for slot in inventory_data.slot_datas:
+			if slot.item_data.texture:
+				slot.item_data.texture = null	
+			
+			

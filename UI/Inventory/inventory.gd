@@ -3,6 +3,8 @@ extends PanelContainer
 const SLOT = preload("res://UI/Inventory/slot.tscn")
 
 @onready var item_grid: HBoxContainer = $MarginContainer/HBoxContainer
+const BLANK_INVENTORY:InventoryData = preload("res://UI/Inventory/blank_inventory.tres")
+	
 
 func set_inventory_data(inventory_data: InventoryData) -> void:
 	populate_item_grid(inventory_data.slot_datas)

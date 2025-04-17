@@ -1,5 +1,7 @@
 extends Control
 
+@onready var player: Player = $"../../player"
+
 var _is_paused:bool = false:
 	set(value):
 		_is_paused = value
@@ -19,3 +21,4 @@ func _on_resume_pressed() -> void:
 func _on_restart_pressed() -> void:
 	_is_paused = false
 	get_tree().reload_current_scene() 
+	player.clear_inventory()

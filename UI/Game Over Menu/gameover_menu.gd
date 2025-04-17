@@ -1,5 +1,7 @@
 extends Control
 
+@onready var player: Player = $"../../player"
+
 var _is_gameover:bool = false:
 	set(value):
 		_is_gameover = value
@@ -15,3 +17,4 @@ func _on_quit_pressed() -> void:
 func _on_new_game_pressed() -> void:
 	_is_gameover = false
 	get_tree().reload_current_scene()
+	player.clear_inventory()

@@ -22,7 +22,7 @@ mesh = SubResource("CylinderMesh_suj8x")
 [node name="Hitbox" type="Area3D" parent="."]
 collision_layer = 8
 script = ExtResource("1_suj8x")
-value = -3
+value = 0
 metadata/_custom_type_script = "uid://b5u1gexby67pj"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
