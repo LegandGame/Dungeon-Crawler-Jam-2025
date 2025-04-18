@@ -1,11 +1,12 @@
 extends Area3D
 
 @export var hostage_Name:Texture
-signal add_to_inventory
 
 
 func _on_area_entered(area: Area3D) -> void:
-	add_to_inventory.emit(hostage_Name)
+	if area.get_parent().is_in_group("player"):
+		if area.get_parent().update_inventory(hostage_Name):
+			rescue()
 
 func rescue() -> void:
 	queue_free()

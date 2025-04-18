@@ -26,7 +26,11 @@ func _ready() -> void:
 	# connect all signals here
 	hurtBox.connect("hurt", takeDamage)
 	health.setHealth(Globs.MAX_HP)
-	
+	health.setHealth(Globs.MAX_HP)
+
+# -----------
+# ACTIONS
+# ----------
 func _physics_process(_delta: float) -> void:
 	# check that we arent mid action before trying to do another action
 	if tween:
@@ -98,13 +102,16 @@ func attack() -> void:
 	animPlayer.play("attack")
 	player_step.emit()
 
-func update_inventory(item: Texture) -> void:
+# -------------
+# INVENTORY
+# ------------
+func update_inventory(item: Texture) -> bool:
 	for slot in inventory_data.slot_datas:
 		if !slot.item_data.texture:
 			slot.item_data.texture = item
 			update_inventory_visual.emit(inventory_data)
-			free_hostage.emit()
-			return
+			return true
+	return false
 
 func clear_inventory() ->void:
 	for slot in inventory_data.slot_datas:
