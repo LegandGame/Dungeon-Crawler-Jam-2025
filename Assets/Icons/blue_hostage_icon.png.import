@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6lftcvdh5jbv"
-path="res://.godot/imported/key_red.png-39debc7bf54aabdeffdea572bcd52758.ctex"
+uid="uid://cgcf2x7ulugoe"
+path="res://.godot/imported/blue_hostage_icon.png-4d6d8b6b87073c091c228ca288b595db.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Icons/key_red.png"
-dest_files=["res://.godot/imported/key_red.png-39debc7bf54aabdeffdea572bcd52758.ctex"]
+source_file="res://Assets/Icons/blue_hostage_icon.png"
+dest_files=["res://.godot/imported/blue_hostage_icon.png-4d6d8b6b87073c091c228ca288b595db.ctex"]
 
 [params]
 

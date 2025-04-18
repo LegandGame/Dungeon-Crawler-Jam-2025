@@ -1,7 +1,6 @@
 class_name Player extends Node3D
 
 const TRAVEL_TIME := 0.3
-const MAX_HP = 40
 
 @onready var rayFront : RayCast3D = $RayCastFront
 @onready var rayBack : RayCast3D = $RayCastBack
@@ -13,8 +12,6 @@ const MAX_HP = 40
 
 @export var inventory_data: InventoryData
 
-
-
 var tween
 var speed : int = 1
 # # used to prevent weird shenanigans with attacking while moving (MUST be @export for animation)
@@ -23,11 +20,12 @@ signal player_step	# might wanna change this to something like "player_turn_end"
 signal player_HealthChange
 signal update_inventory_visual
 signal free_hostage
+signal game_over
 
 func _ready() -> void:
 	# connect all signals here
 	hurtBox.connect("hurt", takeDamage)
-	health.setHealth(MAX_HP)
+	health.setHealth(Globs.MAX_HP)
 	
 func _physics_process(_delta: float) -> void:
 	# check that we arent mid action before trying to do another action
@@ -60,9 +58,9 @@ func _physics_process(_delta: float) -> void:
 
 func takeDamage(damage :int) -> void:
 	health.damage(damage)
-	player_HealthChange.emit(MAX_HP,health.health)
+	player_HealthChange.emit(health.health, Globs.MAX_HP)
 	if health.health <= 0:
-		get_tree().call_deferred("reload_current_scene")
+		game_over.emit()
 
 func moveForward() -> void:
 	if not rayFront.is_colliding():

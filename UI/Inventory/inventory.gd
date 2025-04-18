@@ -2,7 +2,7 @@ extends PanelContainer
 
 const SLOT = preload("res://UI/Inventory/slot.tscn")
 
-@onready var item_grid: HBoxContainer = $MarginContainer/HBoxContainer
+@onready var item_grid: VBoxContainer = $MarginContainer/VBoxContainer
 const BLANK_INVENTORY:InventoryData = preload("res://UI/Inventory/blank_inventory.tres")
 	
 

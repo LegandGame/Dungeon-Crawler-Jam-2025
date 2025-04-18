@@ -1,19 +1,25 @@
-[gd_scene load_steps=2 format=3 uid="uid://fj0kbxqpchli"]
+[gd_scene load_steps=4 format=3 uid="uid://fj0kbxqpchli"]
 
+[ext_resource type="Texture2D" uid="uid://dx7cged4asies" path="res://Assets/Icons/inventory_boxes.png" id="1_45i4b"]
 [ext_resource type="Script" uid="uid://cqmjp56q5w8" path="res://UI/Inventory/slot.gd" id="1_psfh5"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_45i4b"]
+texture = ExtResource("1_45i4b")
+region_rect = Rect2(0, 0, 163, 163)
 
 [node name="Slot" type="PanelContainer"]
 custom_minimum_size = Vector2(64, 64)
 offset_right = 40.0
 offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_45i4b")
 script = ExtResource("1_psfh5")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 4
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 9
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 9
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer"]
 layout_mode = 2

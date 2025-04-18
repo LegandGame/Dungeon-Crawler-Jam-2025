@@ -2,17 +2,22 @@ extends Node3D
 
 var mouse = Vector2()
 var timeRemaining = Globs.TIME_REMAINING_MAX
+var playerHP = Globs.MAX_HP
 const DIST = 3
 
 @onready var movementUI := $"HUD/Movement UI"
 @onready var player := $player
 @onready var inventory: PanelContainer = $HUD/Inventory
 @onready var hostage: Area3D = $Hostage
+@onready var hp_ui: MarginContainer = $"HUD/HP UI"
+
 #@onready var hostage_2: Area3D = $Hostage2
 
 func _ready():
-	player.player_HealthChange.connect($"HUD/HP UI/HP Bar".update_with_tween)
+	hp_ui.populate_hp_icons(playerHP,playerHP)
+	player.player_HealthChange.connect(hp_ui.populate_hp_icons)
 	player.player_step.connect(reduce_time_remaining)
+	player.game_over.connect(game_over)
 	movementUI.movement_UI_Pressed_D.connect(player.moveBack)
 	movementUI.movement_UI_Pressed_U.connect(player.moveForward)
 	movementUI.movement_UI_Pressed_L.connect(player.moveLeft)
@@ -52,5 +57,7 @@ func reduce_time_remaining():
 	timeRemaining -= randi_range(Globs.TIME_REMAINING_LOWER,Globs.TIME_REMAINING_UPPER)
 	$HUD.update_with_tween(Globs.TIME_REMAINING_MAX, timeRemaining)
 	if timeRemaining <= 0:
-		$Screens/GameOverMenu.gameover()
-	
+		game_over()
+
+func game_over():
+	$Screens/GameOverMenu.gameover()
