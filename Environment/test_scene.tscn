@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://lfwam0gb06br"]
+[gd_scene load_steps=21 format=3 uid="uid://lfwam0gb06br"]
 
 [ext_resource type="PackedScene" uid="uid://sdyq6qh25kh" path="res://Entites/player/player.tscn" id="1_c06ff"]
 [ext_resource type="Script" uid="uid://c31kh8h8m8ftc" path="res://Environment/test_scene.gd" id="1_v1n0n"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://co2j7rusbpalw" path="res://UI/Pause Menu/pause_menu.tscn" id="9_pma81"]
 [ext_resource type="Texture2D" uid="uid://b14n4vrnvntgj" path="res://Assets/Textures/industrial_sunset_puresky_4k.exr" id="12_y8rls"]
 [ext_resource type="PackedScene" uid="uid://ba2v00g30vd6e" path="res://Assets/Models/Hub_Tree.glb" id="13_iamwp"]
+[ext_resource type="PackedScene" uid="uid://raolch7yes6u" path="res://Assets/Models/NatureSpirit_01.glb" id="15_0mift"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_p6cpw"]
 size = Vector3(10, 0.1, 10)
@@ -158,3 +159,6 @@ environment = SubResource("Environment_0mift")
 
 [node name="Hub_Tree" parent="." instance=ExtResource("13_iamwp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
+
+[node name="NatureSpirit_01" parent="." instance=ExtResource("15_0mift")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -7, 0, 2)

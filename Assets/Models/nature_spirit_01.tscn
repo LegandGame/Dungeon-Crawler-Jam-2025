@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdbor682cmtq1"]
+
+[ext_resource type="PackedScene" uid="uid://raolch7yes6u" path="res://Assets/Models/NatureSpirit_01.glb" id="1_jcx7x"]
+
+[node name="NatureSpirit_01" instance=ExtResource("1_jcx7x")]
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/0/position = Vector3(0, 0, 0.05092)
+bones/2/rotation = Quaternion(0.494603, 0.869119, -1.29524e-08, -6.56167e-08)
