@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b3y3p1y01ougd"
+path="res://.godot/imported/ENEMY - IDLE 2.mp3-f188d5580820aca6588fb8f7cff14e57.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/ENEMY - IDLE 2.mp3"
+dest_files=["res://.godot/imported/ENEMY - IDLE 2.mp3-f188d5580820aca6588fb8f7cff14e57.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
