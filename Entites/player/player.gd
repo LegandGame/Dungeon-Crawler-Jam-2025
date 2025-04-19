@@ -10,10 +10,14 @@ const TRAVEL_TIME := 0.3
 @onready var health : Health = $Health
 @onready var animPlayer : AnimationPlayer = $AnimationPlayer
 
+@onready var marker : Marker3D = $markers/Markerforward
+var gotoPos := Vector3.ZERO
+
 @export var inventory_data: InventoryData
 
 var tween
 var speed : int = 1
+
 # # used to prevent weird shenanigans with attacking while moving (MUST be @export for animation)
 @export var is_attacking : bool = false
 signal player_step	# might wanna change this to something like "player_turn_end" if have time
@@ -68,24 +72,28 @@ func takeDamage(damage :int) -> void:
 
 func moveForward() -> void:
 	if not rayFront.is_colliding():
+		gotoPos = marker.position + position
 		tween = create_tween()
 		tween.tween_property(self, "transform", transform.translated_local(Vector3.FORWARD * speed * Globs.TILEWIDTH), TRAVEL_TIME)
 		player_step.emit()
 
 func moveBack() -> void:
 	if not rayBack.is_colliding():
+		gotoPos = marker.position
 		tween = create_tween()
 		tween.tween_property(self, "transform", transform.translated_local(Vector3.BACK * speed * Globs.TILEWIDTH), TRAVEL_TIME)
 		player_step.emit()
 
 func moveLeft() -> void:
 	if not rayLeft.is_colliding():
+		gotoPos = marker.position
 		tween = create_tween()
 		tween.tween_property(self, "transform", transform.translated_local(Vector3.LEFT * speed * Globs.TILEWIDTH), TRAVEL_TIME)
 		player_step.emit()
 
 func moveRight() -> void:
 	if not rayRight.is_colliding():
+		gotoPos = marker.position
 		tween = create_tween()
 		tween.tween_property(self, "transform", transform.translated_local(Vector3.RIGHT * speed * Globs.TILEWIDTH), TRAVEL_TIME)
 		player_step.emit()

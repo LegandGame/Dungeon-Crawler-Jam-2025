@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://b5u1gexby67pj" path="res://Common/Hitbox Component/hitbox_component.gd" id="4_44cjr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_37ufg"]
+size = Vector3(1.8, 1, 1.8)
 
 [sub_resource type="Animation" id="Animation_44cjr"]
 length = 0.001
@@ -133,21 +134,26 @@ fov = 95.0
 [node name="RayCastFront" type="RayCast3D" parent="."]
 target_position = Vector3(0, 0, -2)
 collision_mask = 6
+hit_from_inside = true
+collide_with_areas = true
 debug_shape_custom_color = Color(1, 0, 0, 1)
 
 [node name="RayCastRight" type="RayCast3D" parent="."]
 target_position = Vector3(2, 0, 0)
 collision_mask = 6
+collide_with_areas = true
 debug_shape_custom_color = Color(0, 1, 0, 1)
 
 [node name="RayCastLeft" type="RayCast3D" parent="."]
 target_position = Vector3(-2, 0, 0)
 collision_mask = 6
+collide_with_areas = true
 debug_shape_custom_color = Color(1, 1, 0, 1)
 
 [node name="RayCastBack" type="RayCast3D" parent="."]
 target_position = Vector3(0, 0, 2)
 collision_mask = 6
+collide_with_areas = true
 debug_shape_custom_color = Color(0, 0, 1, 1)
 
 [node name="Hurtbox" type="Area3D" parent="."]
@@ -172,7 +178,8 @@ mesh = SubResource("BoxMesh_hl2d4")
 skeleton = NodePath("../AnimationPlayer")
 
 [node name="Weapon Hitbox" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.98023e-08)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+collision_layer = 16
 collision_mask = 4
 monitoring = false
 monitorable = false
@@ -180,5 +187,9 @@ script = ExtResource("4_44cjr")
 metadata/_custom_type_script = "uid://b5u1gexby67pj"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Weapon Hitbox"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 shape = SubResource("BoxShape3D_hl2d4")
+
+[node name="markers" type="Node" parent="."]
+
+[node name="Markerforward" type="Marker3D" parent="markers"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)

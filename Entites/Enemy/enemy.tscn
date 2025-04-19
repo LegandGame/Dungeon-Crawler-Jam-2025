@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://c5snw17oe722c" path="res://Common/Health Component/health_component.gd" id="4_cfso3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cwpil"]
+size = Vector3(1.8, 1, 1.8)
 
 [sub_resource type="SphereMesh" id="SphereMesh_cfso3"]
 
@@ -84,6 +85,7 @@ script = ExtResource("1_cwpil")
 
 [node name="Hurtbox" type="Area3D" parent="."]
 collision_layer = 4
+collision_mask = 16
 script = ExtResource("2_cwpil")
 metadata/_custom_type_script = "uid://dnf2o5uulaeks"
 
@@ -97,6 +99,7 @@ mesh = SubResource("SphereMesh_cfso3")
 [node name="MovementRaycast" type="RayCast3D" parent="."]
 target_position = Vector3(0, 0, -2)
 collision_mask = 7
+collide_with_areas = true
 
 [node name="Hitbox" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
@@ -123,3 +126,6 @@ libraries = {
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.612887)
 mesh = SubResource("BoxMesh_hj8wq")
 skeleton = NodePath("../Hitbox")
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)

@@ -12,15 +12,17 @@ const TRAVEL_TIME := 0.1
 @onready var hurtbox := $Hurtbox
 @onready var moveCast := $MovementRaycast
 @onready var animPlayer : AnimationPlayer = $AnimationPlayer
+@onready var marker : Marker3D = $Marker3D
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	get_tree().get_first_node_in_group("player").connect("player_step", step)
 	hurtbox.connect("hurt", health.damage)
 	health.connect("health_empty", die)
 	playerRef = get_tree().get_first_node_in_group("player")
 	playerPos = playerRef.position
+	playerRef.connect("player_step", step)
+	rayMove.add_exception(hurtbox)
 
 # NOTE: temporary setup just to store movement functions we need. need to figure out pathfinding later
 func step() -> void:
@@ -52,14 +54,15 @@ func step() -> void:
 				rotate_counter_clockwise()
 			
 			# attack if we're close enough
-			if position.distance_to(playerPos) <= 2.0:
+			if position.distance_to(playerPos) <= 2.4:
 				attack()
 			else:
 				move_forward()
 
 func move_forward() -> void:
 	moveCast.force_raycast_update()
-	if not moveCast.is_colliding():
+	#print(!moveCast.is_colliding(), !($Marker3D.position != playerRef.gotoPos))
+	if !moveCast.is_colliding():# and !($Marker3D.position != playerRef.gotoPos):
 		tween = create_tween()
 		tween.tween_property(self, "transform", transform.translated_local(Vector3.FORWARD * Globs.TILEWIDTH), TRAVEL_TIME)
 
