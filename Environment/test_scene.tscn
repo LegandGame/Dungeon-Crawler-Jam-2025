@@ -1,19 +1,20 @@
-[gd_scene load_steps=21 format=3 uid="uid://lfwam0gb06br"]
+[gd_scene load_steps=22 format=3 uid="uid://lfwam0gb06br"]
 
-[ext_resource type="PackedScene" uid="uid://sdyq6qh25kh" path="res://Entites/player/player.tscn" id="1_c06ff"]
+[ext_resource type="PackedScene" uid="uid://sdyq6qh25kh" path="res://Entites/Player/player.tscn" id="1_c06ff"]
 [ext_resource type="Script" uid="uid://c31kh8h8m8ftc" path="res://Environment/test_scene.gd" id="1_v1n0n"]
 [ext_resource type="PackedScene" uid="uid://c1r5j1f33knm" path="res://Entites/Hostage/hostage.tscn" id="3_gbjsn"]
 [ext_resource type="PackedScene" uid="uid://ccnvmwxx1fwl1" path="res://Entites/Enemy/enemy.tscn" id="4_5b75d"]
 [ext_resource type="Texture2D" uid="uid://cgcf2x7ulugoe" path="res://Assets/Icons/blue_hostage_icon.png" id="4_m313d"]
 [ext_resource type="Script" uid="uid://dw4htn6xntn3t" path="res://UI/HUD/hud.gd" id="5_fvnsb"]
-[ext_resource type="Script" uid="uid://thhhk4qd7l8b" path="res://UI/HUD/movement_ui.gd" id="5_gqipa"]
 [ext_resource type="MeshLibrary" uid="uid://brxlkwk3b3gar" path="res://Assets/Models/dungeon_tiles.tres" id="7_gbb08"]
 [ext_resource type="PackedScene" uid="uid://blu3qvqm7gegr" path="res://UI/Inventory/inventory.tscn" id="8_mm60m"]
 [ext_resource type="PackedScene" uid="uid://ddgeybu0nfdaa" path="res://UI/Game Over Menu/gameover_menu.tscn" id="9_5b75d"]
 [ext_resource type="Script" uid="uid://c3cmsxwlqc5ds" path="res://UI/HUD/hp_ui.gd" id="9_m313d"]
 [ext_resource type="PackedScene" uid="uid://co2j7rusbpalw" path="res://UI/Pause Menu/pause_menu.tscn" id="9_pma81"]
 [ext_resource type="Texture2D" uid="uid://b14n4vrnvntgj" path="res://Assets/Textures/industrial_sunset_puresky_4k.exr" id="12_y8rls"]
+[ext_resource type="PackedScene" uid="uid://bk1ykl70heg8x" path="res://UI/Start Menu/start_menu.tscn" id="13_0syye"]
 [ext_resource type="PackedScene" uid="uid://ba2v00g30vd6e" path="res://Assets/Models/Hub_Tree.glb" id="13_iamwp"]
+[ext_resource type="PackedScene" uid="uid://1ok0ugksvknm" path="res://UI/Tutorial/tutorial.tscn" id="14_ngwyu"]
 [ext_resource type="PackedScene" uid="uid://raolch7yes6u" path="res://Assets/Models/NatureSpirit_01.glb" id="15_0mift"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_p6cpw"]
@@ -64,47 +65,6 @@ light_color = Color(1, 0.9025, 0.87, 1)
 [node name="HUD" type="CanvasLayer" parent="."]
 script = ExtResource("5_fvnsb")
 
-[node name="Movement UI" type="GridContainer" parent="HUD"]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 20.0
-offset_bottom = -20.0
-grow_vertical = 0
-columns = 3
-script = ExtResource("5_gqipa")
-
-[node name="Turn_L" type="Button" parent="HUD/Movement UI"]
-layout_mode = 2
-action_mode = 0
-text = "Turn Left"
-icon_alignment = 1
-
-[node name="Up" type="Button" parent="HUD/Movement UI"]
-layout_mode = 2
-action_mode = 0
-text = "  Up  "
-
-[node name="Turn_R" type="Button" parent="HUD/Movement UI"]
-layout_mode = 2
-action_mode = 0
-text = "Turn Right"
-
-[node name="Left" type="Button" parent="HUD/Movement UI"]
-layout_mode = 2
-action_mode = 0
-text = "Left"
-
-[node name="Down" type="Button" parent="HUD/Movement UI"]
-layout_mode = 2
-action_mode = 0
-text = "  Down  "
-
-[node name="Right" type="Button" parent="HUD/Movement UI"]
-layout_mode = 2
-action_mode = 0
-text = "Right"
-
 [node name="TimeRemaining" type="ProgressBar" parent="HUD"]
 self_modulate = Color(0.0352941, 0.545098, 0.913725, 1)
 offset_left = 1130.0
@@ -153,6 +113,11 @@ metadata/_editor_floor_ = Vector3(0, 0, 0)
 [node name="GameOverMenu" parent="Screens" instance=ExtResource("9_5b75d")]
 
 [node name="PauseMenu" parent="Screens" instance=ExtResource("9_pma81")]
+
+[node name="StartMenu" parent="Screens" instance=ExtResource("13_0syye")]
+
+[node name="Tutorial" parent="Screens" instance=ExtResource("14_ngwyu")]
+visible = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_0mift")

@@ -5,7 +5,6 @@ var timeRemaining = Globs.TIME_REMAINING_MAX
 var playerHP = Globs.MAX_HP
 const DIST = 3
 
-@onready var movementUI := $"HUD/Movement UI"
 @onready var player := $player
 @onready var inventory: PanelContainer = $HUD/Inventory
 @onready var hostage: Area3D = $Hostage
@@ -16,12 +15,6 @@ func _ready():
 	player.player_HealthChange.connect(hp_ui.populate_hp_icons)
 	player.player_step.connect(reduce_time_remaining)
 	player.game_over.connect(game_over)
-	movementUI.movement_UI_Pressed_D.connect(player.moveBack)
-	movementUI.movement_UI_Pressed_U.connect(player.moveForward)
-	movementUI.movement_UI_Pressed_L.connect(player.moveLeft)
-	movementUI.movement_UI_Pressed_R.connect(player.moveRight)
-	movementUI.movement_UI_Pressed_rL.connect(player.rotateLeft)
-	movementUI.movement_UI_Pressed_rR.connect(player.rotateRight)
 	player.update_inventory_visual.connect(inventory.set_inventory_data)
 	inventory.set_inventory_data(player.inventory_data)
 	
