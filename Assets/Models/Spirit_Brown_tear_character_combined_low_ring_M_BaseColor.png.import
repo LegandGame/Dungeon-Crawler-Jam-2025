@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2yo6d8x7fuy8"
-path.s3tc="res://.godot/imported/NatureSpirit_01_tear_character_combined_low_brown_M_BaseColor.png-a44f2dce3d7d40e468ce98ff11fc3e41.s3tc.ctex"
+uid="uid://dctmy2g54sq4c"
+path.s3tc="res://.godot/imported/Spirit_Brown_tear_character_combined_low_ring_M_BaseColor.png-6ee52a3348afe56c8542354230cae62c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "cc9fa9a2cad34811e699c39ddc63d656"
+"md5": "bac6ba81ad20772f27f009b5d55c462b"
 }
 
 [deps]
 
-source_file="res://Assets/Models/NatureSpirit_01_tear_character_combined_low_brown_M_BaseColor.png"
-dest_files=["res://.godot/imported/NatureSpirit_01_tear_character_combined_low_brown_M_BaseColor.png-a44f2dce3d7d40e468ce98ff11fc3e41.s3tc.ctex"]
+source_file="res://Assets/Models/Spirit_Brown_tear_character_combined_low_ring_M_BaseColor.png"
+dest_files=["res://.godot/imported/Spirit_Brown_tear_character_combined_low_ring_M_BaseColor.png-6ee52a3348afe56c8542354230cae62c.s3tc.ctex"]
 
 [params]
 

@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2yo6d8x7fuy8"
-path.s3tc="res://.godot/imported/NatureSpirit_01_tear_character_combined_low_brown_M_BaseColor.png-a44f2dce3d7d40e468ce98ff11fc3e41.s3tc.ctex"
+uid="uid://4opxtpqyapgr"
+path.s3tc="res://.godot/imported/Spirit_Blue_Spirit_Blue_D.png-c86fe808125b0a5576ad830f898db619.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "cc9fa9a2cad34811e699c39ddc63d656"
+"md5": "fdd7e5f4f2be051f3d2f845cea33398e"
 }
 
 [deps]
 
-source_file="res://Assets/Models/NatureSpirit_01_tear_character_combined_low_brown_M_BaseColor.png"
-dest_files=["res://.godot/imported/NatureSpirit_01_tear_character_combined_low_brown_M_BaseColor.png-a44f2dce3d7d40e468ce98ff11fc3e41.s3tc.ctex"]
+source_file="res://Assets/Models/Spirit_Blue_Spirit_Blue_D.png"
+dest_files=["res://.godot/imported/Spirit_Blue_Spirit_Blue_D.png-c86fe808125b0a5576ad830f898db619.s3tc.ctex"]
 
 [params]
 

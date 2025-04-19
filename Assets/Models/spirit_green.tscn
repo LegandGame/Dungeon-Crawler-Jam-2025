@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bam04xedsmah4"]
+
+[ext_resource type="PackedScene" uid="uid://d4b8c8v4uprj7" path="res://Assets/Models/Spirit_Green.glb" id="1_dk1c6"]
+
+[node name="Spirit_Green" instance=ExtResource("1_dk1c6")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)

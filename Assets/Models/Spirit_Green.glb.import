@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://vueu5dicyxmy"
-path="res://.godot/imported/NatureSpirit_01.glb-f4b956e9d5532c04f6a51fe166796753.scn"
+uid="uid://d4b8c8v4uprj7"
+path="res://.godot/imported/Spirit_Green.glb-6fecbf7b1b84f26e8bc4f84d335a6bda.scn"
 
 [deps]
 
-source_file="res://Assets/Models/NatureSpirit_01.glb"
-dest_files=["res://.godot/imported/NatureSpirit_01.glb-f4b956e9d5532c04f6a51fe166796753.scn"]
+source_file="res://Assets/Models/Spirit_Green.glb"
+dest_files=["res://.godot/imported/Spirit_Green.glb-6fecbf7b1b84f26e8bc4f84d335a6bda.scn"]
 
 [params]
 
