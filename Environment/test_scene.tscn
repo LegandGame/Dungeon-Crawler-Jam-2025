@@ -13,9 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://co2j7rusbpalw" path="res://UI/Pause Menu/pause_menu.tscn" id="9_pma81"]
 [ext_resource type="Texture2D" uid="uid://b14n4vrnvntgj" path="res://Assets/Textures/industrial_sunset_puresky_4k.exr" id="12_y8rls"]
 [ext_resource type="PackedScene" uid="uid://bk1ykl70heg8x" path="res://UI/Start Menu/start_menu.tscn" id="13_0syye"]
-[ext_resource type="PackedScene" uid="uid://ba2v00g30vd6e" path="res://Assets/Models/Hub_Tree.glb" id="13_iamwp"]
 [ext_resource type="PackedScene" uid="uid://1ok0ugksvknm" path="res://UI/Tutorial/tutorial.tscn" id="14_ngwyu"]
 [ext_resource type="PackedScene" uid="uid://vueu5dicyxmy" path="res://Assets/Models/NatureSpirit_01.glb" id="15_0mift"]
+[ext_resource type="PackedScene" uid="uid://b0g1turu6s6vj" path="res://Environment/Hub Tree/hub_tree.tscn" id="15_0syye"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_p6cpw"]
 size = Vector3(10, 0.1, 10)
@@ -122,7 +122,7 @@ visible = false
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_0mift")
 
-[node name="Hub_Tree" parent="." instance=ExtResource("13_iamwp")]
+[node name="Hub_Tree" parent="." instance=ExtResource("15_0syye")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
 
 [node name="NatureSpirit_01" parent="." instance=ExtResource("15_0mift")]
