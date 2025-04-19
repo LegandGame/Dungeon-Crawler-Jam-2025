@@ -1,6 +1,6 @@
 [gd_scene load_steps=22 format=3 uid="uid://lfwam0gb06br"]
 
-[ext_resource type="PackedScene" uid="uid://sdyq6qh25kh" path="res://Entites/player/player.tscn" id="1_c06ff"]
+[ext_resource type="PackedScene" uid="uid://sdyq6qh25kh" path="res://Entites/Player/player.tscn" id="1_c06ff"]
 [ext_resource type="Script" uid="uid://c31kh8h8m8ftc" path="res://Environment/test_scene.gd" id="1_v1n0n"]
 [ext_resource type="PackedScene" uid="uid://c1r5j1f33knm" path="res://Entites/Hostage/hostage.tscn" id="3_gbjsn"]
 [ext_resource type="PackedScene" uid="uid://ccnvmwxx1fwl1" path="res://Entites/Enemy/enemy.tscn" id="4_5b75d"]
@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bk1ykl70heg8x" path="res://UI/Start Menu/start_menu.tscn" id="13_0syye"]
 [ext_resource type="PackedScene" uid="uid://ba2v00g30vd6e" path="res://Assets/Models/Hub_Tree.glb" id="13_iamwp"]
 [ext_resource type="PackedScene" uid="uid://1ok0ugksvknm" path="res://UI/Tutorial/tutorial.tscn" id="14_ngwyu"]
-[ext_resource type="PackedScene" uid="uid://raolch7yes6u" path="res://Assets/Models/NatureSpirit_01.glb" id="15_0mift"]
+[ext_resource type="PackedScene" uid="uid://vueu5dicyxmy" path="res://Assets/Models/NatureSpirit_01.glb" id="15_0mift"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_p6cpw"]
 size = Vector3(10, 0.1, 10)
