@@ -58,9 +58,6 @@ func _physics_process(_delta: float) -> void:
 		rotateRight()
 	if Input.is_action_just_pressed("turn_counter"):
 		rotateLeft()
-	# wait
-	if Input.is_action_just_pressed("wait"):
-		player_step.emit()
 	# attack
 	if Input.is_action_just_pressed("attack"):
 		attack()
@@ -120,7 +117,10 @@ func update_inventory(name: String, item: Texture) -> bool:
 		if !slot.item_data.texture:
 			slot.item_data.texture = item
 			slot.item_data.name = name
+			Globs.MAX_HP += 1
+			health.damage(-1)
 			update_inventory_visual.emit(inventory_data)
+			player_HealthChange.emit(health.health, Globs.MAX_HP)
 			return true
 	return false
 
