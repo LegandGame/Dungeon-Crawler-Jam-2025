@@ -10,12 +10,14 @@ const DIST = 3
 @onready var hostage: Area3D = $Hostage
 @onready var hp_ui: MarginContainer = $"HUD/HP UI"
 @onready var hub_tree: StaticBody3D = $Hub_Tree
+@onready var win_menu: Control = $Screens/WinMenu
 
 func _ready():
 	hp_ui.populate_hp_icons(playerHP,playerHP)
 	player.player_HealthChange.connect(hp_ui.populate_hp_icons)
 	player.player_step.connect(reduce_time_remaining)
 	player.game_over.connect(game_over)
+	player.win.connect(win_menu.win)
 	player.update_inventory_visual.connect(inventory.set_inventory_data)
 	inventory.set_inventory_data(player.inventory_data)
 	hub_tree.dump_inventory.connect(player.clear_inventory)

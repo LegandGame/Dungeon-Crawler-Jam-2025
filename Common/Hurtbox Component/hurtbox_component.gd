@@ -5,5 +5,6 @@ class_name Hurtbox extends Area3D
 signal hurt(value)
 
 func on_hurt(value : int) -> void:
-	hurt_1.play()
+	if value >1:
+		hurt_1.play()
 	hurt.emit(value)

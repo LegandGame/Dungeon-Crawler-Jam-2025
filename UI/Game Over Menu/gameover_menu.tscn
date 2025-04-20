@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://ddgeybu0nfdaa"]
+[gd_scene load_steps=5 format=3 uid="uid://ddgeybu0nfdaa"]
 
 [ext_resource type="Script" uid="uid://b0a00jhluvtkh" path="res://UI/Game Over Menu/gameover_menu.gd" id="1_34whb"]
+[ext_resource type="Texture2D" uid="uid://dnumj8ytc23dp" path="res://UI/Game Over Menu/lose_screen.png" id="2_g0hu5"]
+[ext_resource type="Texture2D" uid="uid://b8l37ltm4q60a" path="res://UI/Game Over Menu/NewGame_Neutral.png" id="3_hgy4o"]
+[ext_resource type="Texture2D" uid="uid://b85b0ht2p02m4" path="res://UI/Game Over Menu/Quit_Neutral.png" id="4_46jvf"]
 
 [node name="GameOverMenu" type="Control"]
 visible = false
@@ -12,45 +15,33 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_34whb")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(1, 1, 1, 0.670588)
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 650.0
+texture = ExtResource("2_g0hu5")
+expand_mode = 2
+stretch_mode = 5
 
-[node name="GridContainer" type="GridContainer" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -87.0
-offset_top = -73.5
-offset_right = 87.0
-offset_bottom = 73.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/v_separation = 20
+[node name="New Game" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 745.0
+offset_top = 200.0
+offset_right = 1411.0
+offset_bottom = 446.0
+scale = Vector2(0.4, 0.4)
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("3_hgy4o")
 
-[node name="Label" type="Label" parent="GridContainer"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 32
-text = "Game Over"
+[node name="Quit" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 745.0
+offset_top = 350.0
+offset_right = 1411.0
+offset_bottom = 596.0
+scale = Vector2(0.4, 0.4)
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("4_46jvf")
 
-[node name="New Game" type="Button" parent="GridContainer"]
-process_mode = 3
-layout_mode = 2
-text = "New Game"
-
-[node name="Quit" type="Button" parent="GridContainer"]
-process_mode = 3
-layout_mode = 2
-text = "Quit"
-
-[connection signal="pressed" from="GridContainer/New Game" to="." method="_on_new_game_pressed"]
-[connection signal="pressed" from="GridContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="New Game" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

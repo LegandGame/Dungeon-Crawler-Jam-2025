@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://c1r5j1f33knm"]
+[gd_scene load_steps=7 format=3 uid="uid://c1r5j1f33knm"]
 
 [ext_resource type="Script" uid="uid://7bjf00p1f87o" path="res://Entites/Hostage/hostage.gd" id="1_17ml3"]
 [ext_resource type="Script" uid="uid://b5u1gexby67pj" path="res://Common/Hitbox Component/hitbox_component.gd" id="1_suj8x"]
+[ext_resource type="AudioStream" uid="uid://cqvyyi7vwv7ik" path="res://Assets/Audio/Spirit_Happy.wav" id="3_mo7rn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_17ml3"]
 
@@ -27,5 +28,8 @@ metadata/_custom_type_script = "uid://b5u1gexby67pj"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
 shape = SubResource("BoxShape3D_suj8x")
+
+[node name="SpiritHappy" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_mo7rn")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

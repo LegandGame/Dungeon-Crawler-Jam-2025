@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://b8s4ef1u4lctj"]
+
+[ext_resource type="Script" uid="uid://d4e4kemak4dmv" path="res://UI/Win Screen/win_menu.gd" id="1_o5pjj"]
+[ext_resource type="Texture2D" uid="uid://b8l37ltm4q60a" path="res://UI/Game Over Menu/NewGame_Neutral.png" id="2_a063p"]
+[ext_resource type="Texture2D" uid="uid://kudqsr6hpxhp" path="res://UI/Win Screen/win_screen.png" id="2_nwey7"]
+[ext_resource type="Texture2D" uid="uid://b85b0ht2p02m4" path="res://UI/Game Over Menu/Quit_Neutral.png" id="3_wghqb"]
+[ext_resource type="AudioStream" uid="uid://bwethltta2ruo" path="res://Assets/Audio/Exploration 1.mp3" id="5_wghqb"]
+
+[node name="WinMenu" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o5pjj")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 650.0
+texture = ExtResource("2_nwey7")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="New Game" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 745.0
+offset_top = 200.0
+offset_right = 1411.0
+offset_bottom = 446.0
+scale = Vector2(0.4, 0.4)
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("2_a063p")
+
+[node name="Quit" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 745.0
+offset_top = 350.0
+offset_right = 1411.0
+offset_bottom = 596.0
+scale = Vector2(0.4, 0.4)
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("3_wghqb")
+
+[node name="Exploration1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_wghqb")
+
+[connection signal="pressed" from="New Game" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

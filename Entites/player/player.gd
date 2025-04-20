@@ -10,6 +10,7 @@ const TRAVEL_TIME := 0.3
 @onready var health : Health = $Health
 @onready var animPlayer : AnimationPlayer = $AnimationPlayer
 @onready var punch_1: AudioStreamPlayer = $Punch1
+@onready var spirits_returning: AudioStreamPlayer = $SpiritsReturning
 
 @onready var marker : Marker3D = $markers/Markerforward
 var gotoPos := Vector3.ZERO
@@ -24,8 +25,8 @@ var speed : int = 1
 signal player_step	# might wanna change this to something like "player_turn_end" if have time
 signal player_HealthChange
 signal update_inventory_visual
-signal free_hostage
 signal game_over
+signal win
 
 func _ready() -> void:
 	# connect all signals here
@@ -126,10 +127,13 @@ func update_inventory(name: String, item: Texture) -> bool:
 func clear_inventory() ->void:
 	for slot in inventory_data.slot_datas:
 			if slot.item_data.texture:
-				print(slot.item_data.name)
+				spirits_returning.play()
+				Globs.spiritCounter += 1
 				slot.item_data.texture = null
 				slot.item_data.name = ""
-			
+	
+	if Globs.spiritCounter >= 3:
+		win.emit()
 	update_inventory_visual.emit(inventory_data)
 			
 			
