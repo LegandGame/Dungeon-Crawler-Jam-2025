@@ -1,6 +1,6 @@
-[gd_scene load_steps=30 format=3 uid="uid://lfwam0gb06br"]
+[gd_scene load_steps=31 format=3 uid="uid://lfwam0gb06br"]
 
-[ext_resource type="PackedScene" uid="uid://sdyq6qh25kh" path="res://Entites/Player/player.tscn" id="1_c06ff"]
+[ext_resource type="PackedScene" uid="uid://sdyq6qh25kh" path="res://Entites/player/player.tscn" id="1_c06ff"]
 [ext_resource type="Script" uid="uid://c31kh8h8m8ftc" path="res://Environment/test_scene.gd" id="1_v1n0n"]
 [ext_resource type="PackedScene" uid="uid://c1r5j1f33knm" path="res://Entites/Hostage/hostage.tscn" id="3_gbjsn"]
 [ext_resource type="Texture2D" uid="uid://dkxquvn5mnqhw" path="res://Assets/Icons/green_hostage_icon.png" id="3_ngwyu"]
@@ -23,6 +23,7 @@
 [ext_resource type="AudioStream" uid="uid://dfxg27jhx4i7b" path="res://Assets/Audio/Button.wav" id="17_i72sm"]
 [ext_resource type="Texture2D" uid="uid://dcicoxc2v0oip" path="res://Assets/Icons/brown_hostage_icon.png" id="18_qhoq5"]
 [ext_resource type="PackedScene" uid="uid://b40xra3nppy27" path="res://UI/Option Menu/option_menu.tscn" id="19_25102"]
+[ext_resource type="PackedScene" uid="uid://dj2teos1ggvdl" path="res://Assets/Models/Enemy.tscn" id="24_ammgh"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_p6cpw"]
 size = Vector3(10, 0.1, 10)
@@ -166,3 +167,6 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -7, 0, 2)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 1, -1)
 hostage_Name = "Brown"
 hostage_Texture = ExtResource("18_qhoq5")
+
+[node name="Enemy2" parent="." instance=ExtResource("24_ammgh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, 1)
