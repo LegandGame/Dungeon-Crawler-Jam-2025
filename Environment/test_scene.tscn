@@ -1,6 +1,6 @@
-[gd_scene load_steps=31 format=3 uid="uid://lfwam0gb06br"]
+[gd_scene load_steps=29 format=3 uid="uid://lfwam0gb06br"]
 
-[ext_resource type="PackedScene" uid="uid://sdyq6qh25kh" path="res://Entites/Player/player.tscn" id="1_c06ff"]
+[ext_resource type="PackedScene" uid="uid://sdyq6qh25kh" path="res://Entites/player/player.tscn" id="1_c06ff"]
 [ext_resource type="Script" uid="uid://c31kh8h8m8ftc" path="res://Environment/test_scene.gd" id="1_v1n0n"]
 [ext_resource type="PackedScene" uid="uid://c1r5j1f33knm" path="res://Entites/Hostage/hostage.tscn" id="3_gbjsn"]
 [ext_resource type="Texture2D" uid="uid://dkxquvn5mnqhw" path="res://Assets/Icons/green_hostage_icon.png" id="3_ngwyu"]
@@ -17,13 +17,11 @@
 [ext_resource type="PackedScene" uid="uid://bk1ykl70heg8x" path="res://UI/Start Menu/start_menu.tscn" id="13_0syye"]
 [ext_resource type="AudioStream" uid="uid://uudk73fbar6o" path="res://Assets/Audio/MENU - NEW.mp3" id="14_5k8s8"]
 [ext_resource type="PackedScene" uid="uid://1ok0ugksvknm" path="res://UI/Tutorial/tutorial.tscn" id="14_ngwyu"]
-[ext_resource type="PackedScene" uid="uid://vueu5dicyxmy" path="res://Assets/Models/NatureSpirit_01.glb" id="15_0mift"]
 [ext_resource type="PackedScene" uid="uid://b0g1turu6s6vj" path="res://Environment/Hub Tree/hub_tree.tscn" id="15_0syye"]
 [ext_resource type="AudioStream" uid="uid://d2nnxvlsy1iw6" path="res://Assets/Audio/Music_Exploration.mp3" id="15_sdn8u"]
 [ext_resource type="AudioStream" uid="uid://dfxg27jhx4i7b" path="res://Assets/Audio/Button.wav" id="17_i72sm"]
 [ext_resource type="Texture2D" uid="uid://dcicoxc2v0oip" path="res://Assets/Icons/brown_hostage_icon.png" id="18_qhoq5"]
 [ext_resource type="PackedScene" uid="uid://b40xra3nppy27" path="res://UI/Option Menu/option_menu.tscn" id="19_25102"]
-[ext_resource type="PackedScene" uid="uid://dj2teos1ggvdl" path="res://Assets/Models/Enemy.tscn" id="24_ammgh"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_p6cpw"]
 size = Vector3(10, 0.1, 10)
@@ -48,7 +46,7 @@ size = Vector3(0.758095, 1, 0.757736)
 script = ExtResource("1_v1n0n")
 
 [node name="Hostage2" parent="." instance=ExtResource("3_gbjsn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1, 17)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -25, 1, 1)
 hostage_Name = "Green"
 hostage_Texture = ExtResource("3_ngwyu")
 
@@ -160,13 +158,7 @@ transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -0.00559998, 0, -0.0015974
 shape = SubResource("BoxShape3D_sdn8u")
 debug_color = Color(0.870588, 0, 0.360784, 1)
 
-[node name="NatureSpirit_01" parent="." instance=ExtResource("15_0mift")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -7, 0, 2)
-
 [node name="Hostage3" parent="." instance=ExtResource("3_gbjsn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 1, -1)
 hostage_Name = "Brown"
 hostage_Texture = ExtResource("18_qhoq5")
-
-[node name="Enemy2" parent="." instance=ExtResource("24_ammgh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, 1)

@@ -1,6 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://sdyq6qh25kh"]
+[gd_scene load_steps=16 format=3 uid="uid://sdyq6qh25kh"]
 
-[ext_resource type="Script" uid="uid://dgwt86b6f81mk" path="res://Entites/Player/player.gd" id="1_37ufg"]
+[ext_resource type="Script" uid="uid://dgwt86b6f81mk" path="res://Entites/player/player.gd" id="1_37ufg"]
 [ext_resource type="Resource" uid="uid://ba781d0cwvnab" path="res://UI/Inventory/inventory.tres" id="2_hl2d4"]
 [ext_resource type="Script" uid="uid://c5snw17oe722c" path="res://Common/Health Component/health_component.gd" id="3_37ufg"]
 [ext_resource type="Script" uid="uid://dnf2o5uulaeks" path="res://Common/Hurtbox Component/hurtbox_component.gd" id="3_ty0ra"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://yrfuckqgu2ns" path="res://Assets/Audio/Hurt1.wav" id="4_ms3i6"]
 [ext_resource type="AudioStream" uid="uid://bmn2wt3tmctjk" path="res://Assets/Audio/Punch1.wav" id="6_koh3h"]
 [ext_resource type="AudioStream" uid="uid://dgtjgaentavjx" path="res://Assets/Audio/Spirits Returning.wav" id="8_wp5y5"]
+[ext_resource type="PackedScene" uid="uid://8n55nkdimpmk" path="res://Assets/Models/hand.tscn" id="9_2tbmh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_37ufg"]
 size = Vector3(1.8, 1, 1.8)
@@ -179,7 +180,7 @@ libraries = {
 }
 
 [node name="Weapon Mesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.83239, 0.554191, 0, -0.554191, 0.83239, 0.520496, 0, -0.400381)
+transform = Transform3D(0.829282, 0.465165, 0.309699, -0.558831, 0.690286, 0.45958, 0, -0.554191, 0.83239, 0.520496, 0, -0.400381)
 mesh = SubResource("BoxMesh_hl2d4")
 skeleton = NodePath("../AnimationPlayer")
 
@@ -205,3 +206,6 @@ stream = ExtResource("6_koh3h")
 
 [node name="SpiritsReturning" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_wp5y5")
+
+[node name="Hand" parent="." instance=ExtResource("9_2tbmh")]
+transform = Transform3D(0.35977, 0.346333, 0.0248695, -0.252693, 0.285711, -0.323287, -0.238142, 0.22005, 0.380613, 0.537756, -0.265228, -0.11484)
