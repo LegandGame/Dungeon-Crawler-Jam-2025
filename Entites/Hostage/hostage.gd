@@ -1,8 +1,10 @@
 extends Area3D
 
 @onready var spirit_happy: AudioStreamPlayer = $SpiritHappy
+@export var spiritModel:Node3D
 @export var hostage_Name:String
 @export var hostage_Texture:Texture
+
 
 func _on_area_entered(area: Area3D) -> void:
 	if area.get_parent().is_in_group("player"):

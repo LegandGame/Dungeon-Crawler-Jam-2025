@@ -11,6 +11,9 @@ const TRAVEL_TIME := 0.3
 @onready var animPlayer : AnimationPlayer = $AnimationPlayer
 @onready var punch_1: AudioStreamPlayer = $Punch1
 @onready var spirits_returning: AudioStreamPlayer = $SpiritsReturning
+@onready var spirit_green: Node3D = $"../Spirit_Green"
+@onready var spirit_blue: Node3D = $"../Spirit_Blue"
+@onready var spirit_brown: Node3D = $"../Spirit_Brown"
 
 @onready var marker : Marker3D = $markers/Markerforward
 var gotoPos := Vector3.ZERO
@@ -118,6 +121,12 @@ func update_inventory(name: String, item: Texture) -> bool:
 		if !slot.item_data.texture:
 			slot.item_data.texture = item
 			slot.item_data.name = name
+			if name == "Green":
+				spirit_green.visible = false
+			if name == "Brown":
+				spirit_brown.visible = false
+			if name == "Blue":
+				spirit_blue.visible = false
 			Globs.MAX_HP += 1
 			health.damage(-1)
 			update_inventory_visual.emit(inventory_data)
