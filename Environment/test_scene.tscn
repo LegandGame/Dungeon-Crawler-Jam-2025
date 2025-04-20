@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://lfwam0gb06br"]
+[gd_scene load_steps=32 format=3 uid="uid://lfwam0gb06br"]
 
 [ext_resource type="PackedScene" uid="uid://sdyq6qh25kh" path="res://Entites/Player/player.tscn" id="1_c06ff"]
 [ext_resource type="Script" uid="uid://c31kh8h8m8ftc" path="res://Environment/test_scene.gd" id="1_v1n0n"]
@@ -23,6 +23,7 @@
 [ext_resource type="AudioStream" uid="uid://dfxg27jhx4i7b" path="res://Assets/Audio/Button.wav" id="17_i72sm"]
 [ext_resource type="Texture2D" uid="uid://dcicoxc2v0oip" path="res://Assets/Icons/brown_hostage_icon.png" id="18_qhoq5"]
 [ext_resource type="PackedScene" uid="uid://b40xra3nppy27" path="res://UI/Option Menu/option_menu.tscn" id="19_25102"]
+[ext_resource type="PackedScene" uid="uid://dnq3fv6fhvq3y" path="res://UI/Tutorial/Startcutscene.tscn" id="20_uqgf2"]
 [ext_resource type="PackedScene" uid="uid://dj2teos1ggvdl" path="res://Assets/Models/Enemy.tscn" id="24_ammgh"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_p6cpw"]
@@ -148,6 +149,9 @@ visible = false
 stream = ExtResource("17_i72sm")
 
 [node name="Option Menu" parent="Screens" instance=ExtResource("19_25102")]
+
+[node name="StartScene" parent="Screens" instance=ExtResource("20_uqgf2")]
+visible = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_0mift")
