@@ -5,6 +5,7 @@ extends Control
 @onready var music_exploration: AudioStreamPlayer = $MusicExploration
 @onready var button: AudioStreamPlayer = $"../Button"
 @onready var option_menu: Control = $"../Option Menu"
+@onready var start_scene: Control = $"../StartScene"
 
 func _ready() -> void:
 	if !Globs.muteMusic:
@@ -16,6 +17,7 @@ func _on_start_pressed() -> void:
 		button.play()
 	if !Globs.muteMusic:
 		music_exploration.play()
+	start_scene.make_visible()
 	visible = false
 
 func _on_quit_pressed() -> void:

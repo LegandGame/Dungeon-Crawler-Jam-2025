@@ -1,0 +1,87 @@
+[gd_scene load_steps=9 format=3 uid="uid://dnq3fv6fhvq3y"]
+
+[ext_resource type="Script" uid="uid://cath1qp808rpf" path="res://UI/Tutorial/startcutscene.gd" id="1_qfak7"]
+[ext_resource type="Texture2D" uid="uid://c82e17kwuw6xg" path="res://UI/Tutorial/cut_scene_1.png" id="2_krcgc"]
+[ext_resource type="Texture2D" uid="uid://dcku3ye2y88ih" path="res://UI/Tutorial/cut_scene_2.png" id="3_w4obj"]
+[ext_resource type="Texture2D" uid="uid://hxskngxfch02" path="res://UI/Tutorial/cut_scene_3.png" id="4_dn408"]
+[ext_resource type="Texture2D" uid="uid://dqx2un4m1s07q" path="res://UI/Tutorial/cut_scene_4.png" id="5_5unj2"]
+[ext_resource type="Texture2D" uid="uid://c50fv23t3skci" path="res://UI/Tutorial/cut_scene_5.png" id="6_4emwk"]
+[ext_resource type="Texture2D" uid="uid://7mo4ambr4jd7" path="res://UI/Tutorial/cut_scene_6.png" id="7_1yiap"]
+[ext_resource type="Texture2D" uid="uid://dce6afe7tcjff" path="res://UI/Tutorial/cut_scene_7.png" id="8_i6x4s"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_qfak7")
+
+[node name="scene1" type="TextureButton" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.4, 0.4)
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("2_krcgc")
+
+[node name="scene2" type="TextureButton" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.4, 0.4)
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("3_w4obj")
+
+[node name="scene3" type="TextureButton" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.4, 0.4)
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("4_dn408")
+
+[node name="scene4" type="TextureButton" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.4, 0.4)
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("5_5unj2")
+
+[node name="scene5" type="TextureButton" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.4, 0.4)
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("6_4emwk")
+
+[node name="scene6" type="TextureButton" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.4, 0.4)
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("7_1yiap")
+
+[node name="scene7" type="TextureButton" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.4, 0.4)
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("8_i6x4s")
+
+[connection signal="pressed" from="scene1" to="." method="_on_scene_1_pressed"]
+[connection signal="pressed" from="scene2" to="." method="_on_scene_2_pressed"]
+[connection signal="pressed" from="scene3" to="." method="_on_scene_3_pressed"]
+[connection signal="pressed" from="scene4" to="." method="_on_scene_4_pressed"]
+[connection signal="pressed" from="scene5" to="." method="_on_scene_5_pressed"]
+[connection signal="pressed" from="scene6" to="." method="_on_scene_6_pressed"]
+[connection signal="pressed" from="scene7" to="." method="_on_scene_7_pressed"]
