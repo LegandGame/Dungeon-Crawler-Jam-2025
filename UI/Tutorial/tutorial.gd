@@ -12,5 +12,6 @@ func make_visible() -> void:
 	_is_visible = true
 
 func _on_texture_button_pressed() -> void:
-	button.play()
+	if !Globs.muteSFX:
+		button.play()
 	_is_visible = false

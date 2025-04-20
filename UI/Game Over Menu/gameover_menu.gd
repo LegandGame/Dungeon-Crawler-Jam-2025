@@ -16,7 +16,8 @@ func _on_quit_pressed() -> void:
 
 
 func _on_new_game_pressed() -> void:
-	button.play()
+	if !Globs.muteSFX:
+		button.play()
 	_is_gameover = false
 	get_tree().reload_current_scene()
 	player.clear_inventory()

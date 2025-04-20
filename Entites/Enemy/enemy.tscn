@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://ccnvmwxx1fwl1"]
+[gd_scene load_steps=14 format=3 uid="uid://ccnvmwxx1fwl1"]
 
 [ext_resource type="Script" uid="uid://b5u1gexby67pj" path="res://Common/Hitbox Component/hitbox_component.gd" id="1_ba46g"]
 [ext_resource type="Script" uid="uid://nfp4jje2jjbn" path="res://Entites/Enemy/enemy.gd" id="1_cwpil"]
 [ext_resource type="Script" uid="uid://dnf2o5uulaeks" path="res://Common/Hurtbox Component/hurtbox_component.gd" id="2_cwpil"]
 [ext_resource type="Script" uid="uid://c5snw17oe722c" path="res://Common/Health Component/health_component.gd" id="4_cfso3"]
+[ext_resource type="AudioStream" uid="uid://yrfuckqgu2ns" path="res://Assets/Audio/Hurt1.wav" id="4_hj8wq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cwpil"]
 size = Vector3(1.8, 1, 1.8)
@@ -91,6 +92,9 @@ metadata/_custom_type_script = "uid://dnf2o5uulaeks"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox"]
 shape = SubResource("BoxShape3D_cwpil")
+
+[node name="Hurt1" type="AudioStreamPlayer" parent="Hurtbox"]
+stream = ExtResource("4_hj8wq")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)

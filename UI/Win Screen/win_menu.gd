@@ -16,7 +16,8 @@ func win():
 
 
 func _on_new_game_pressed() -> void:
-	button.play()
+	if !Globs.muteSFX:
+		button.play()
 	_is_gameoverWin = false
 	get_tree().reload_current_scene()
 	Globs.spiritCounter = 0

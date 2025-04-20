@@ -105,7 +105,8 @@ func rotateRight() -> void:
 	tween.tween_property(self, "transform", transform.rotated_local(Vector3.UP, -PI/2), TRAVEL_TIME)
 
 func attack() -> void:
-	punch_1.play()
+	if !Globs.muteSFX:
+		punch_1.play()
 	animPlayer.play("attack")
 	player_step.emit()
 
@@ -127,7 +128,8 @@ func update_inventory(name: String, item: Texture) -> bool:
 func clear_inventory() ->void:
 	for slot in inventory_data.slot_datas:
 			if slot.item_data.texture:
-				spirits_returning.play()
+				if !Globs.muteSFX:
+					spirits_returning.play()
 				Globs.spiritCounter += 1
 				slot.item_data.texture = null
 				slot.item_data.name = ""

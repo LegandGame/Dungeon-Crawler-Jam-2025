@@ -10,5 +10,6 @@ func _on_area_entered(area: Area3D) -> void:
 			rescue()
 
 func rescue() -> void:
-	spirit_happy.play()
+	if !Globs.muteSFX:
+		spirit_happy.play()
 	queue_free()
