@@ -1,10 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://sdyq6qh25kh"]
+[gd_scene load_steps=14 format=3 uid="uid://sdyq6qh25kh"]
 
 [ext_resource type="Script" uid="uid://dgwt86b6f81mk" path="res://Entites/Player/player.gd" id="1_37ufg"]
 [ext_resource type="Resource" uid="uid://ba781d0cwvnab" path="res://UI/Inventory/inventory.tres" id="2_hl2d4"]
 [ext_resource type="Script" uid="uid://c5snw17oe722c" path="res://Common/Health Component/health_component.gd" id="3_37ufg"]
 [ext_resource type="Script" uid="uid://dnf2o5uulaeks" path="res://Common/Hurtbox Component/hurtbox_component.gd" id="3_ty0ra"]
 [ext_resource type="Script" uid="uid://b5u1gexby67pj" path="res://Common/Hitbox Component/hitbox_component.gd" id="4_44cjr"]
+[ext_resource type="AudioStream" uid="uid://c5i441ut1u43x" path="res://Assets/Audio/Hurt1.wav" id="4_ms3i6"]
+[ext_resource type="AudioStream" uid="uid://bymejcxo4lwi4" path="res://Assets/Audio/Punch1.wav" id="6_koh3h"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_37ufg"]
 size = Vector3(1.8, 1, 1.8)
@@ -163,6 +165,9 @@ metadata/_custom_type_script = "uid://dnf2o5uulaeks"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox"]
 shape = SubResource("BoxShape3D_37ufg")
 
+[node name="Hurt1" type="AudioStreamPlayer" parent="Hurtbox"]
+stream = ExtResource("4_ms3i6")
+
 [node name="Health" type="Node" parent="."]
 script = ExtResource("3_37ufg")
 metadata/_custom_type_script = "uid://c5snw17oe722c"
@@ -193,3 +198,6 @@ shape = SubResource("BoxShape3D_hl2d4")
 
 [node name="Markerforward" type="Marker3D" parent="markers"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="Punch1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_koh3h")

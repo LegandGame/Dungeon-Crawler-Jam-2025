@@ -9,6 +9,7 @@ const TRAVEL_TIME := 0.3
 @onready var hurtBox : Hurtbox = $Hurtbox
 @onready var health : Health = $Health
 @onready var animPlayer : AnimationPlayer = $AnimationPlayer
+@onready var punch_1: AudioStreamPlayer = $Punch1
 
 @onready var marker : Marker3D = $markers/Markerforward
 var gotoPos := Vector3.ZERO
@@ -29,7 +30,6 @@ signal game_over
 func _ready() -> void:
 	# connect all signals here
 	hurtBox.connect("hurt", takeDamage)
-	health.setHealth(Globs.MAX_HP)
 	health.setHealth(Globs.MAX_HP)
 
 # -----------
@@ -107,16 +107,18 @@ func rotateRight() -> void:
 	tween.tween_property(self, "transform", transform.rotated_local(Vector3.UP, -PI/2), TRAVEL_TIME)
 
 func attack() -> void:
+	punch_1.play()
 	animPlayer.play("attack")
 	player_step.emit()
 
 # -------------
 # INVENTORY
 # ------------
-func update_inventory(item: Texture) -> bool:
+func update_inventory(name: String, item: Texture) -> bool:
 	for slot in inventory_data.slot_datas:
 		if !slot.item_data.texture:
 			slot.item_data.texture = item
+			slot.item_data.name = name
 			update_inventory_visual.emit(inventory_data)
 			return true
 	return false
@@ -124,6 +126,10 @@ func update_inventory(item: Texture) -> bool:
 func clear_inventory() ->void:
 	for slot in inventory_data.slot_datas:
 			if slot.item_data.texture:
-				slot.item_data.texture = null	
+				print(slot.item_data.name)
+				slot.item_data.texture = null
+				slot.item_data.name = ""
+			
+	update_inventory_visual.emit(inventory_data)
 			
 			

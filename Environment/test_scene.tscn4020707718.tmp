@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://co2j7rusbpalw" path="res://UI/Pause Menu/pause_menu.tscn" id="9_pma81"]
 [ext_resource type="Texture2D" uid="uid://b14n4vrnvntgj" path="res://Assets/Textures/industrial_sunset_puresky_4k.exr" id="12_y8rls"]
 [ext_resource type="PackedScene" uid="uid://bk1ykl70heg8x" path="res://UI/Start Menu/start_menu.tscn" id="13_0syye"]
-[ext_resource type="AudioStream" uid="uid://uudk73fbar6o" path="res://Assets/Audio/MENU - NEW.mp3" id="14_5k8s8"]
+[ext_resource type="AudioStream" uid="uid://ditpa8w466eap" path="res://Assets/Audio/MENU - NEW.mp3" id="14_5k8s8"]
 [ext_resource type="PackedScene" uid="uid://1ok0ugksvknm" path="res://UI/Tutorial/tutorial.tscn" id="14_ngwyu"]
 [ext_resource type="PackedScene" uid="uid://vueu5dicyxmy" path="res://Assets/Models/NatureSpirit_01.glb" id="15_0mift"]
 [ext_resource type="PackedScene" uid="uid://b0g1turu6s6vj" path="res://Environment/Hub Tree/hub_tree.tscn" id="15_0syye"]

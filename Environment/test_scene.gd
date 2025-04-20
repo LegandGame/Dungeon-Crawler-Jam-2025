@@ -9,6 +9,7 @@ const DIST = 3
 @onready var inventory: PanelContainer = $HUD/Inventory
 @onready var hostage: Area3D = $Hostage
 @onready var hp_ui: MarginContainer = $"HUD/HP UI"
+@onready var hub_tree: StaticBody3D = $Hub_Tree
 
 func _ready():
 	hp_ui.populate_hp_icons(playerHP,playerHP)
@@ -17,6 +18,7 @@ func _ready():
 	player.game_over.connect(game_over)
 	player.update_inventory_visual.connect(inventory.set_inventory_data)
 	inventory.set_inventory_data(player.inventory_data)
+	hub_tree.dump_inventory.connect(player.clear_inventory)
 	
 
 func _input(event: InputEvent) -> void:

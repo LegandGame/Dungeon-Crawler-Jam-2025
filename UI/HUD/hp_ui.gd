@@ -14,7 +14,6 @@ func _ready() -> void:
 
 
 func populate_hp_icons (currentHp:int, maxHp:int) -> void:
-	print(maxHp,currentHp)
 	var hpLost = maxHp-currentHp 
 	#clear HP icons
 	for child in icon_grid.get_children():
